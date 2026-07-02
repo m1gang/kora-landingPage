@@ -3,17 +3,41 @@ import { Image } from "astro:assets";
 import logoKora from "../assets/icons/ISOTIPO-LOGOTIPO.svg";
 ---
 
-<header class="absolute top-0 w-full z-50 backdrop-blur-md bg-gradient-to-b from-black/60 to-transparent">
-  <nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
-    <a class="font-display-lg-mobile text-display-lg-mobile font-bold text-white tracking-tighter" href="/">
-      <Image src={logoKora} alt="KORA Logo" class="h-12 w-auto brightness-0 invert" />
+<header class="m-4 rounded-xl fixed top-0 w-full z-50 mix-blend-difference">
+  <nav
+    class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto"
+  >
+    <a
+      class="font-display-lg-mobile text-display-lg-mobile font-bold text-white tracking-tighter"
+      href="/"
+    >
+      <Image
+        src={logoKora}
+        alt="KORA Logo"
+        class="h-12 w-auto brightness-0 invert"
+      />
     </a>
     <div class="hidden md:flex gap-10 items-center">
-      <a class="font-label-lg text-label-lg text-white border-b-2 border-white pb-1 transition-colors duration-300" href="#propiedades">Propiedades</a>
-      <a class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300" href="#servicios">Servicios</a>
-      <a class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300" href="#nosotros">Nosotros</a>
-      <a class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300" href="#blog">Blog</a>
+      <a
+        class="font-label-lg text-label-lg text-white border-b-2 border-white pb-1 transition-colors duration-300"
+        href="#propiedades">Propiedades</a
+      >
+      <a
+        class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300"
+        href="#servicios">Servicios</a
+      >
+      <a
+        class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300"
+        href="#nosotros">Nosotros</a
+      >
+      <a
+        class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300"
+        href="#blog">Blog</a
+      >
     </div>
-    <a class="bg-white text-black px-8 py-3 rounded-lg font-label-lg hover:bg-opacity-90 active:scale-95 transition-all duration-300 inline-block" href="#contacto">Contacto</a>
+    <a
+      class="bg-white text-black px-8 py-3 rounded-lg font-label-lg hover:bg-opacity-90 active:scale-95 transition-all duration-300 inline-block"
+      href="#contacto">Contacto</a
+    >
   </nav>
 </header>

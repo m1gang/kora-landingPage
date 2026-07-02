@@ -1,33 +1,42 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
-const title = 'KORA | Bienes Raíces de Lujo — Propiedades Exclusivas';
-const description = 'Bienvenido a KORA, tu asesor inmobiliario de confianza. Descubre propiedades exclusivas de lujo en las ubicaciones más prestigiosas.';
-const image = '/images/og-default.jpg';
-const url = 'https://korarealty.com';
+const title = "KORA | Bienes Raíces de Lujo — Propiedades Exclusivas";
+const description =
+  "Bienvenido a KORA, tu asesor inmobiliario de confianza. Descubre propiedades exclusivas de lujo en las ubicaciones más prestigiosas.";
+const image = "/images/og-default.jpg";
+const url = "https://korarealty.com";
 
 const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'RealEstateAgent',
-  name: 'KORA Realty',
-  description: 'Agencia inmobiliaria especializada en propiedades de lujo y bienes raíces exclusivos.',
-  url: 'https://korarealty.com',
-  logo: 'https://korarealty.com/images/logo.png',
-  image: 'https://korarealty.com/images/og-default.jpg',
-  telephone: '+34 910 000 000',
-  email: 'info@korarealty.com',
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "KORA Realty",
+  description:
+    "Agencia inmobiliaria especializada en propiedades de lujo y bienes raíces exclusivos.",
+  url: "https://korarealty.com",
+  logo: "https://korarealty.com/images/logo.png",
+  image: "https://korarealty.com/images/og-default.jpg",
+  telephone: "+34 910 000 000",
+  email: "info@korarealty.com",
   address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Calle de Serrano, 42',
-    addressLocality: 'Madrid',
-    addressCountry: 'ES',
+    "@type": "PostalAddress",
+    streetAddress: "Calle de Serrano, 42",
+    addressLocality: "Madrid",
+    addressCountry: "ES",
   },
-  areaServed: ['ES', 'PT', 'FR'],
-  priceRange: '$$$$',
-  numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 15, maxValue: 50 },
-  foundingDate: '2012',
-  founder: { '@type': 'Person', name: 'KORA Group' },
-  sameAs: ['https://instagram.com/korarealty', 'https://linkedin.com/company/korarealty'],
+  areaServed: ["ES", "PT", "FR"],
+  priceRange: "$$$$",
+  numberOfEmployees: {
+    "@type": "QuantitativeValue",
+    minValue: 15,
+    maxValue: 50,
+  },
+  foundingDate: "2012",
+  founder: { "@type": "Person", name: "KORA Group" },
+  sameAs: [
+    "https://instagram.com/korarealty",
+    "https://linkedin.com/company/korarealty",
+  ],
 };
 ---
 
@@ -54,11 +63,16 @@ const schema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(schema, null, 2)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(schema, null, 2)}
+    />
 
     <slot name="head" />
   </head>
-  <body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-fixed">
+  <body
+    class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-fixed"
+  >
     <slot />
   </body>
 </html>

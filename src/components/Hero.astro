@@ -1,11 +1,32 @@
-<section class="relative pb-stack-lg overflow-hidden" id="propiedades">
+---
+import { getImage } from "astro:assets";
+import hero1 from "../assets/images/hero1.webp";
+import hero2 from "../assets/images/hero2.webp";
+import hero3 from "../assets/images/hero3.webp";
+
+const optimizedHero1 = await getImage({ src: hero1 });
+const optimizedHero2 = await getImage({ src: hero2 });
+const optimizedHero3 = await getImage({ src: hero3 });
+---
+
+<section class="relative overflow-hidden p-3" id="propiedades">
   <div
-    class="relative h-[850px] w-full rounded-2xl overflow-hidden group hero-notch"
+    class="relative h-[875px] w-full overflow-hidden group hero-notch"
     style='clip-path: path("M 24 0 L 1500 0 A 24 24 0 0 1 1500 24 L 1500 846 A 24 24 0 0 1 1256 870 L 600 870 A 32 32 0 0 1 572 854 L 540 822 A 32 32 0 0 0 512 806 L 24 806 A 24 24 0 0 1 0 782 L 0 24 A 24 24 0 0 1 24 0 Z");'
   >
     <div
-      class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 rounded-2xl"
-      style='background-image: url("/src/assets/images/Firefly.webp");'
+      class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out group-hover:scale-105 rounded-2xl opacity-100"
+      style={`background-image: url(${optimizedHero1.src});`}
+    >
+    </div>
+    <div
+      class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out group-hover:scale-105 rounded-2xl opacity-0"
+      style={`background-image: url(${optimizedHero2.src});`}
+    >
+    </div>
+    <div
+      class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out group-hover:scale-105 rounded-2xl opacity-0"
+      style={`background-image: url(${optimizedHero3.src});`}
     >
     </div>
     <div
@@ -13,20 +34,24 @@
     >
     </div>
     <div
-      class="absolute inset-0 flex flex-col justify-end p-8 md:p-20 text-white pb-32 md:pb-40 reveal fade-in-up"
+      class="absolute inset-0 flex flex-col justify-end p-8 md:p-20 text-white pb-32 md:pb-40"
     >
-      <h1 class="font-display-lg text-[64px] md:text-[100px] leading-none mb-6">
+      <h1
+        class="font-display-lg text-[64px] md:text-[100px] leading-none mb-6 text-white mix-blend-difference reveal fade-in-up"
+      >
         Construimos<br />
         <span class="italic font-normal">Comunidad</span>
       </h1>
-      <p class="font-body-lg text-body-lg max-w-md opacity-90">
+      <p
+        class="font-body-lg text-body-lg max-w-md opacity-90 reveal fade-in-up delay-100"
+      >
         Bienvenido a un mundo donde el lujo se encuentra con el estilo de vida.
         Nuestras propiedades seleccionadas ofrecen más que solo un lugar para
         vivir.
       </p>
     </div>
     <div
-      class="absolute bottom-20 right-10 hidden lg:block w-72 glass-effect rounded-3xl p-4 border border-white/10 backdrop-blur-md bg-white/10 reveal fade-in-up delay-300 animate-subtle-float"
+      class="absolute bottom-20 right-10 hidden lg:block w-72 glass-effect rounded-3xl p-4 border border-white/10 backdrop-blur-md bg-white/10 reveal fade-in-up delay-300 animate-bounce-slow"
     >
       <div class="h-40 rounded-2xl overflow-hidden mb-4">
         <img
@@ -46,19 +71,107 @@
     </div>
   </div>
   <div
-    class="md:absolute md:left-12 flex flex-wrap gap-6 mt-8 md:mt-0 px-4 md:bottom-5 transition-all duration-300 z-50 reveal fade-in delay-200"
+    class="md:absolute md:left-12 flex gap-4 mt-8 md:mt-0 px-4 md:bottom-8 transition-all duration-300 z-50 reveal fade-in delay-200"
   >
     <button
-      class="px-8 py-3 rounded-full border border-primary font-label-sm hover:bg-primary hover:text-white transition-all duration-300 uppercase tracking-widest bg-white/50 backdrop-blur-sm md:bg-transparent"
-      >Architecture</button
+      class="hero-dot group relative h-2.5 w-28 overflow-hidden -skew-x-12 bg-green-500/20 border border-white/10 rounded-sm cursor-pointer transition-all duration-300"
+      data-slide="0"
+      aria-label="Slide 1"
     >
+      <div class="hero-dot-progress absolute left-0 top-0 h-full w-0 bg-white">
+      </div>
+    </button>
     <button
-      class="px-8 py-3 rounded-full border border-outline font-label-sm hover:border-primary transition-all duration-300 uppercase tracking-widest bg-white/50 backdrop-blur-sm md:bg-transparent"
-      >House</button
+      class="hero-dot group relative h-2.5 w-28 overflow-hidden -skew-x-12 bg-orange-300/20 border border-white/10 rounded-sm cursor-pointer transition-all duration-300"
+      data-slide="1"
+      aria-label="Slide 2"
     >
+      <div class="hero-dot-progress absolute left-0 top-0 h-full w-0 bg-white">
+      </div>
+    </button>
     <button
-      class="px-8 py-3 rounded-full border border-outline font-label-sm hover:border-primary transition-all duration-300 uppercase tracking-widest bg-white/50 backdrop-blur-sm md:bg-transparent"
-      >Commercial</button
+      class="hero-dot group relative h-2.5 w-32 overflow-hidden -skew-x-12 bg-black/20 border border-white/10 rounded-sm cursor-pointer transition-all duration-300"
+      data-slide="2"
+      aria-label="Slide 3"
     >
+      <div class="hero-dot-progress absolute left-0 top-0 h-full w-0 bg-white">
+      </div>
+    </button>
   </div>
+
+  <script>
+    function initHeroCarousel() {
+      const slides = document.querySelectorAll(".hero-slide");
+      const dots = document.querySelectorAll(".hero-dot");
+      let currentIndex = 0;
+      let slideInterval: any;
+      const duration = 5000;
+
+      if (slides.length === 0 || dots.length === 0) return;
+
+      function showSlide(index: number) {
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.classList.remove("opacity-0");
+            slide.classList.add("opacity-100");
+          } else {
+            slide.classList.remove("opacity-100");
+            slide.classList.add("opacity-0");
+          }
+        });
+
+        dots.forEach((dot, i) => {
+          const progress = dot.querySelector(
+            ".hero-dot-progress",
+          ) as HTMLElement;
+          if (!progress) return;
+
+          if (i === index) {
+            dot.classList.add("active");
+            progress.style.transition = "none";
+            progress.style.width = "0%";
+
+            // Force reflow
+            progress.offsetHeight;
+
+            progress.style.transition = `width ${duration}ms linear`;
+            progress.style.width = "100%";
+          } else {
+            dot.classList.remove("active");
+            progress.style.transition = "none";
+            progress.style.width = "0%";
+          }
+        });
+
+        currentIndex = index;
+      }
+
+      function nextSlide() {
+        let nextIndex = (currentIndex + 1) % slides.length;
+        showSlide(nextIndex);
+      }
+
+      function startAutoSlide() {
+        showSlide(currentIndex);
+        slideInterval = setInterval(nextSlide, duration);
+      }
+
+      function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, duration);
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          showSlide(index);
+          resetInterval();
+        });
+      });
+
+      startAutoSlide();
+    }
+
+    document.addEventListener("DOMContentLoaded", initHeroCarousel);
+    document.addEventListener("astro:page-load", initHeroCarousel);
+  </script>
 </section>
