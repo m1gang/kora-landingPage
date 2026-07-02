@@ -1,17 +1,123 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Services from '../components/Services.astro';
+import PropertiesCarousel from '../components/PropertiesCarousel.astro';
+import Gallery from '../components/Gallery.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <main>
+    <Header />
+    <Hero />
+    <Stats />
+    <Services />
+    <PropertiesCarousel />
+    <Gallery />
+    <Testimonials />
+    <Contact />
+  </main>
+  <Footer />
+
+  <script>
+    // Smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    (function() {
+      // Properties Carousel Logic
+      const propTrack = document.getElementById('propertiesTrack');
+      const propPrev = document.getElementById('propPrevBtn');
+      const propNext = document.getElementById('propNextBtn');
+      let propIndex = 0;
+
+      function updatePropCarousel() {
+        if (!propTrack || propTrack.children.length === 0) return;
+        const itemWidth = propTrack.children[0].offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(propTrack).gap) || 0;
+        const move = itemWidth + gap;
+        propTrack.style.transform = `translateX(-${propIndex * move}px)`;
+      }
+
+      if (propTrack && propPrev && propNext) {
+        propNext.addEventListener('click', () => {
+          if (propIndex < propTrack.children.length - 1) {
+            propIndex++;
+            updatePropCarousel();
+          }
+        });
+        propPrev.addEventListener('click', () => {
+          if (propIndex > 0) {
+            propIndex--;
+            updatePropCarousel();
+          }
+        });
+        window.addEventListener('resize', updatePropCarousel);
+      }
+
+      // Testimonials Carousel Logic
+      const testTrack = document.getElementById('testimonialTrack');
+      const testPrev = document.getElementById('prevBtn');
+      const testNext = document.getElementById('nextBtn');
+      let testIndex = 0;
+
+      function updateTestimonial() {
+        if (!testTrack || testTrack.children.length === 0) return;
+        const items = testTrack.querySelectorAll('.carousel-item');
+        if (testIndex >= items.length) testIndex = items.length - 1;
+        if (testIndex < 0) testIndex = 0;
+        testTrack.style.transform = `translateX(-${testIndex * 100}%)`;
+      }
+
+      if (testTrack && testPrev && testNext) {
+        const testItems = testTrack.querySelectorAll('.carousel-item');
+        testNext.addEventListener('click', () => {
+          if (testIndex < testItems.length - 1) {
+            testIndex++;
+            updateTestimonial();
+          } else {
+            testIndex = 0;
+            updateTestimonial();
+          }
+        });
+        testPrev.addEventListener('click', () => {
+          if (testIndex > 0) {
+            testIndex--;
+            updateTestimonial();
+          } else {
+            testIndex = testItems.length - 1;
+            updateTestimonial();
+          }
+        });
+      }
+
+      // Intersection Observer for Scroll Animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+      });
+    })();
+  </script>
+</BaseLayout>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        try {
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "surface-container-lowest": "#ffffff",
+                            "surface-container": "#eeeeee",
+                            "error-container": "#ffdad6",
+                            "primary-fixed": "#e2e2e2",
+                            "surface-container-highest": "#e2e2e2",
+                            "inverse-surface": "#2f3131",
+                            "on-tertiary": "#ffffff",
+                            "on-primary": "#ffffff",
+                            "on-tertiary-fixed-variant": "#464747",
+                            "outline-variant": "#cfc4c5",
+                            "surface": "#f9f9f9",
+                            "on-secondary-container": "#5f6161",
+                            "on-surface-variant": "#4c4546",
+                            "secondary-container": "#dcdddd",
+                            "secondary-fixed-dim": "#c6c6c7",
+                            "tertiary": "#000000",
+                            "outline": "#7e7576",
+                            "surface-variant": "#e2e2e2",
+                            "on-error-container": "#93000a",
+                            "tertiary-container": "#1b1c1c",
+                            "on-background": "#1a1c1c",
+                            "surface-container-high": "#e8e8e8",
+                            "error": "#ba1a1a",
+                            "surface-container-low": "#f3f3f4",
+                            "surface-dim": "#dadada",
+                            "on-tertiary-container": "#848484",
+                            "on-primary-fixed-variant": "#474747",
+                            "on-error": "#ffffff",
+                            "inverse-primary": "#c6c6c6",
+                            "on-secondary": "#ffffff",
+                            "surface-tint": "#5e5e5e",
+                            "on-primary-fixed": "#1b1b1b",
+                            "on-primary-container": "#848484",
+                            "primary": "#000000",
+                            "primary-fixed-dim": "#c6c6c6",
+                            "tertiary-fixed-dim": "#c7c6c6",
+                            "secondary-fixed": "#e2e2e2",
+                            "secondary": "#5d5f5f",
+                            "primary-container": "#1b1b1b",
+                            "on-tertiary-fixed": "#1b1c1c",
+                            "on-surface": "#1a1c1c",
+                            "surface-bright": "#f9f9f9",
+                            "on-secondary-fixed": "#1a1c1c",
+                            "background": "#f9f9f9",
+                            "on-secondary-fixed-variant": "#454747",
+                            "inverse-on-surface": "#f0f1f1",
+                            "tertiary-fixed": "#e4e2e2"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "container-max": "1440px",
+                            "stack-md": "2rem",
+                            "margin-mobile": "20px",
+                            "gutter": "24px",
+                            "stack-sm": "1rem",
+                            "stack-lg": "64px",
+                            "margin-desktop": "80px"
+                        },
+                        "fontFamily": {
+                            "label-sm": ["Montserrat"],
+                            "display-lg": ["Playfair Display"],
+                            "body-lg": ["Montserrat"],
+                            "headline-lg": ["Playfair Display"],
+                            "display-lg-mobile": ["Playfair Display"],
+                            "headline-md": ["Playfair Display"],
+                            "label-lg": ["Montserrat"],
+                            "body-md": ["Montserrat"]
+                        },
+                        "fontSize": {
+                            "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                            "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                            "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                            "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                            "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                        }
+                    }
+                }
+            }
+        } catch (_e) {}
+    }catch(_e){}</script><style>
+            @keyframes bounce-slow {
+                0%, 100% { transform: translate(-50%, -55%); }
+                50% { transform: translate(-50%, -45%); }
+            }
+            .animate-bounce-slow {
+                animation: bounce-slow 4s ease-in-out infinite;
+            }
+
+            @media (prefers-reduced-motion: no-preference) {
+                .reveal {
+                    opacity: 0;
+                    visibility: hidden;
+                    will-change: transform, opacity;
+                }
+                
+                .reveal.visible {
+                    opacity: 1;
+                    visibility: visible;
+                    animation-duration: 0.8s;
+                    animation-fill-mode: forwards;
+                    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+
+                .fade-in-up {
+                    transform: translateY(40px);
+                }
+                .fade-in-up.visible {
+                    animation-name: fadeInUp;
+                }
+                
+                .slide-in-left {
+                    transform: translateX(-50px);
+                }
+                .slide-in-left.visible {
+                    animation-name: slideInLeft;
+                }
+
+                .slide-in-right {
+                    transform: translateX(50px);
+                }
+                .slide-in-right.visible {
+                    animation-name: slideInRight;
+                }
+
+                .fade-in {
+                    opacity: 0;
+                }
+                .fade-in.visible {
+                    animation-name: fadeIn;
+                }
+
+                @keyframes fadeInUp {
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes slideInLeft {
+                    to { opacity: 1; transform: translateX(0); }
+                }
+                @keyframes slideInRight {
+                    to { opacity: 1; transform: translateX(0); }
+                }
+                @keyframes fadeIn {
+                    to { opacity: 1; }
+                }
+                
+                .delay-100.visible { animation-delay: 0.1s; }
+                .delay-200.visible { animation-delay: 0.2s; }
+                .delay-300.visible { animation-delay: 0.3s; }
+                .delay-400.visible { animation-delay: 0.4s; }
+
+                @keyframes subtleFloat {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-8px); }
+                }
+                .animate-subtle-float {
+                    animation: subtleFloat 5s ease-in-out infinite;
+                }
+            }
+        </style></head><body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-fixed">
+<!-- TopNavBar -->
+<main>
+<!-- Hero Section -->
+<section class="relative pb-stack-lg overflow-hidden" id="propiedades"><header class="absolute top-0 w-full z-50 backdrop-blur-md bg-gradient-to-b from-black/60 to-transparent">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
+<a class="font-display-lg-mobile text-display-lg-mobile font-bold text-white tracking-tighter" href="#"><div class="h-12 w-auto flex items-center">KORA</div></a>
+<div class="hidden md:flex gap-10 items-center">
+<a class="font-label-lg text-label-lg text-white border-b-2 border-white pb-1 transition-colors duration-300" href="#propiedades">Propiedades</a>
+<a class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300" href="#servicios">Servicios</a>
+<a class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300" href="#nosotros">Nosotros</a>
+<a class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300" href="#blog">Blog</a>
+</div>
+<a class="bg-white text-black px-8 py-3 rounded-lg font-label-lg hover:bg-opacity-90 active:scale-95 transition-all duration-300 inline-block" href="#contacto">Contacto</a>
+</nav>
+</header>
+<div class="relative h-[870px] w-full rounded-2xl overflow-hidden group hero-notch" style='clip-path: path("M 24 0 L 1500 0 A 24 24 0 0 1 1500 24 L 1500 846 A 24 24 0 0 1 1256 870 L 600 870 A 32 32 0 0 1 572 854 L 540 822 A 32 32 0 0 0 512 806 L 24 806 A 24 24 0 0 1 0 782 L 0 24 A 24 24 0 0 1 24 0 Z");'>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 rounded-2xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAz9zzZ3XX8wZXDUI52NRKJK0HBdwxiZgy-kdcY1q8CedZpyM5s4cSimfKN4l_panuHjFFgq-TfZ8ai6mxLu4MXaEIo-t9xg-2ijQd41T_EkxrR9cn1C9lIGz71QyR6k7EVGCeIlT6JgTUPyYVKBasKlANfRYDxGxw05IVMyZeVLS2NjpjRMyroodGpvBjbShCVDJo2Y0z3_FGZsnwLpOHFX74QmpiHkjMif-F62Box6got3vTgNbjlfWRd_U2I2S8scMDu6fxf9OdBww");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute inset-0 flex flex-col justify-end p-8 md:p-20 text-white pb-32 md:pb-40 reveal fade-in-up">
+<h1 class="font-display-lg text-[64px] md:text-[100px] leading-none mb-6">
+                        Construimos<br/>
+<span class="italic font-normal">Comunidad</span>
+</h1>
+<p class="font-body-lg text-body-lg max-w-md opacity-90">
+                        Bienvenido a un mundo donde el lujo se encuentra con el estilo de vida. Nuestras propiedades seleccionadas ofrecen más que solo un lugar para vivir.
+                    </p>
+</div>
+<!-- Floating Info Card-->
+<div class="absolute bottom-20 right-10 hidden lg:block w-72 glass-effect rounded-3xl p-4 border border-white/10 backdrop-blur-md bg-white/10 reveal fade-in-up delay-300 animate-subtle-float">
+<div class="h-40 rounded-2xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAkvScreIKbWRoD0ibSJIoM0e3mbhSnRnrD8SNk3JcX5wEsghOH9rLG8Io7bnsCwJ0CDjJ2VdhipyY4sNXdRj7rRprkID2z3NvsuGvTHeaxAbM7UuzG4gNzOzfCezrxSMDxhBjCwC0se7VHTelbwWaO6sOkE0xX-JQpoVlfAMXLqK42q25AddXMxQcTuXDOLIBP0uo5angqjjI-DC-V2tpFu3pvSsPZhlk_9uILkr3RGjglV0v36l_qzAKvBFfUSVc_I_Rxjx5ddjT"/>
+</div>
+<p class="font-label-lg text-white mb-4">Encuentra el hogar que se adapta a tu presupuesto</p>
+<button class="w-full py-2 bg-white/20 text-white rounded-xl font-label-sm border border-white/30 hover:bg-white/40 transition-all duration-300">Explorar Ahora</button>
+</div>
+</div>
+<!-- Category Chips Overlay positioned inside the notch negative space -->
+<div class="md:absolute md:left-12 flex flex-wrap gap-6 mt-8 md:mt-0 px-4 md:bottom-5 transition-all duration-300 z-50 reveal fade-in delay-200">
+<button class="px-8 py-3 rounded-full border border-primary font-label-sm hover:bg-primary hover:text-white transition-all duration-300 uppercase tracking-widest bg-white/50 backdrop-blur-sm md:bg-transparent">Architecture</button>
+<button class="px-8 py-3 rounded-full border border-outline font-label-sm hover:border-primary transition-all duration-300 uppercase tracking-widest bg-white/50 backdrop-blur-sm md:bg-transparent">House</button>
+<button class="px-8 py-3 rounded-full border border-outline font-label-sm hover:border-primary transition-all duration-300 uppercase tracking-widest bg-white/50 backdrop-blur-sm md:bg-transparent">Commercial</button>
+</div>
+</section>
+<!-- Trust Metrics Section -->
+<section class="py-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop" id="nosotros">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="flex-1">
+<h2 class="font-display-lg text-display-lg mb-8 reveal slide-in-left">
+                        Tus asesores de <br/>
+<span class="italic">Confianza</span>
+</h2>
+<p class="text-secondary max-w-md mb-12 font-body-lg reveal fade-in delay-100">
+                        Descubre el epítome de la vida de lujo en esta oferta que ofrece amplias vistas panorámicas al océano desde cada habitación.
+                    </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-8 bg-surface-container rounded-[32px] text-center border border-outline/5 hover:bg-white transition-all duration-300 reveal fade-in-up delay-100">
+<h3 class="font-headline-lg mb-2">18k+</h3>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Clientes Satisfechos</p>
+</div>
+<div class="p-8 bg-tertiary text-on-tertiary rounded-[32px] text-center active:scale-95 transition-transform duration-300 reveal fade-in-up delay-200">
+<h3 class="font-headline-lg mb-2">17k+</h3>
+<p class="text-label-sm text-on-tertiary/70 uppercase tracking-widest">Socios</p>
+</div>
+<div class="p-8 bg-surface-container rounded-[32px] text-center border border-outline/5 hover:bg-white transition-all duration-300 reveal fade-in-up delay-300">
+<h3 class="font-headline-lg mb-2">13+</h3>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Años de Experiencia</p>
+</div>
+<div class="p-8 bg-surface-container rounded-[32px] text-center border border-outline/5 hover:bg-white transition-all duration-300 reveal fade-in-up delay-400">
+<h3 class="font-headline-lg mb-2">14k+</h3>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Propiedades Disponibles</p>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full reveal fade-in-up delay-200">
+<div class="aspect-[4/3] rounded-[48px] overflow-hidden shadow-2xl relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFbQ_BtT2kmpIszcA2mKrZ5554P9AmNRM6NyGVkDN5h4osdo9HPfSR7aEvKIpN6ss5g5Z0jp82EdkNPSc_uI-aWmE3uHbvdO22BbFBzBCgzX6-oNUi0oCBqkmzaf81mfOzt0fLzCU5YDkmpkB0kBsRo8sQUtCgBuhPekAYFxIpBb_CeBSAIzOR7w0HBnEW9ibVqmqnPocySc5h0oseElXeugpJcIqoHlkDxvqXF2br4vL0gA-SIKezwAkeN0l2GWH9jj7nFkFCMLXQ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-stack-lg bg-surface" id="servicios"><div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"><div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6 reveal fade-in"><h2 class="font-display-lg text-display-lg">Expert Services for Buyers,<br/>Sellers, and Investors</h2><div class="flex flex-wrap gap-2 justify-end max-w-md"><span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Commercial</span><span class="px-6 py-2 bg-white text-black rounded-full border border-outline/10 font-label-sm shadow-sm">Property</span><span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">House</span><span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Store</span><span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Apartments</span></div></div><div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start"><div class="space-y-8 reveal fade-in-up delay-100 group hover:-translate-y-2 transition-transform duration-500"><div class="rounded-[32px] overflow-hidden aspect-[4/3] shadow-lg group-hover:shadow-xl transition-shadow duration-500"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB4whroTOvEcZqlCnSUcR4DsiaU3Y_PsRJcs5VFIlm4zcr_608SKY9O_rYF0htFPoIK9ziomuZyaYEbM6LhCADE48uob6aqERVyL3yaE64z69vLFkUN857uSt9J974ZFoqFVLJBMU05_HPiTsIUrAMyPxO6RFTMVwovvLFTgevUvPyK8-AOjPqqyzIlFgnLW_iVjXHJa9rn5p-LDXWTaBo5ywilraeoQoIUla5cd1dgA9EPoIoRbmvoNP_Y3Py6sLze0cWnI47m9_a"/></div><div class="space-y-4"><h3 class="font-headline-md">Buy a home</h3><p class="text-secondary font-body-md">Find your place with an immersive photo experience and the most listings, including</p><button class="px-6 py-3 rounded-full border border-outline/20 font-label-sm flex items-center gap-2 hover:bg-surface-container transition-all duration-300">View Details <span class="material-symbols-outlined text-sm">arrow_outward</span></button></div></div><div class="space-y-8 md:pt-20 reveal fade-in-up delay-200 group hover:-translate-y-2 transition-transform duration-500"><div class="space-y-4 mb-8"><h3 class="font-headline-md">Selling a home</h3><p class="text-secondary font-body-md">No matter what path you take to sell your home, we can help you navigate a successful sale.</p><button class="px-6 py-3 rounded-full border border-outline/20 font-label-sm flex items-center gap-2 hover:bg-surface-container transition-all duration-300">View Details <span class="material-symbols-outlined text-sm">arrow_outward</span></button></div><div class="rounded-[32px] overflow-hidden aspect-[4/3] shadow-lg group-hover:shadow-xl transition-shadow duration-500"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQpe1d2aLnL75Ocm9cVv6k1_lDRO-lSnU4T7O1y-fyuRWkfMA2hkCewK4pUdPOK__cS6bbY0-hghEsAqbd1FTZpk2Mv4Q-uAldoHoi-QzGHy54tVFQMtuO1fSWz6ZC_FqXYsjBOMZ2VL5R_K2uZDoXezcR0YU6TSbQmQzAmY7Pf-BYYLqLgmzjIq6sZlNa3EhTEKa-f5I3cPSghEeJJkrJVBjSyMtkncfUDgOxSeavcjZTzDNUZHigHWj00J_xP09rPKpmPuJ6Amms"/></div></div><div class="space-y-8 reveal fade-in-up delay-300 group hover:-translate-y-2 transition-transform duration-500"><div class="rounded-[32px] overflow-hidden aspect-[4/3] shadow-lg group-hover:shadow-xl transition-shadow duration-500 relative"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9YNq-mXHVZ0_1SLny0SbkDkZ1elHZiR-eCr-h0N4E9lCLSuJHQhB3Bmn62dWdY3sQCr0g_C0FlBlSJDY9mIVbbEXv_pvAt-2VxBSlnIxj-8FxxKa1yVghTsuGMpCW9MNeUxf7zRbEnvbtjn_cPwc2zVCR1Pruw6LBgx2Fy8_l68ev2YjqrHxWjSk4Gx-f3qKzSngeT8zxO30EJ3sFTTgkgI08dVSBW1qyhCzo0wHfenuxuEa4bVMAOpBN1FwbIDt3hEQRZ8nFizZV"/><div class="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2"><span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Smart Home</span><span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Property</span><span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Store</span><span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Apartments</span></div></div><div class="space-y-4"><h3 class="font-headline-md">Rent a home</h3><p class="text-secondary font-body-md">We're creating a seamless online experience – from shopping on the largest rental network</p><button class="px-8 py-3 bg-tertiary text-on-tertiary rounded-full font-label-sm flex items-center gap-2 hover:scale-105 transition-all duration-300">View Details <span class="material-symbols-outlined text-sm">arrow_outward</span></button></div></div></div></div></section>
+<!-- Bento Grid Categories -->
+<section class="py-stack-lg bg-white overflow-hidden" id="propiedades-destacadas"><div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-12"><div class="flex flex-col md:flex-row justify-between items-end gap-6 reveal fade-in-up"><div class="max-w-2xl"><h2 class="font-display-lg text-display-lg mb-4">Encuentra el hogar de tus sueños</h2><p class="text-secondary font-body-lg">Explora nuestras exclusivas propiedades en las ubicaciones más prestigiosas. Tenemos el espacio perfecto para tu visión.</p></div><div class="flex gap-4 mb-2"><button class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 group" id="propPrevBtn"><span class="material-symbols-outlined group-active:-translate-x-1 transition-transform">chevron_left</span></button><button class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center hover:bg-opacity-90 transition-all duration-300 group" id="propNextBtn"><span class="material-symbols-outlined group-active:translate-x-1 transition-transform">chevron_right</span></button></div></div></div><div class="relative px-margin-mobile md:px-margin-desktop overflow-hidden reveal fade-in delay-200"><div class="flex gap-gutter pb-8 transition-transform duration-500 ease-in-out" id="propertiesTrack"><!-- Property Card 1 --><div class="min-w-[300px] md:min-w-[600px] group"><div class="relative aspect-[16/10] rounded-xl overflow-hidden mb-6"><img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAz9zzZ3XX8wZXDUI52NRKJK0HBdwxiZgy-kdcY1q8CedZpyM5s4cSimfKN4l_panuHjFFgq-TfZ8ai6mxLu4MXaEIo-t9xg-2ijQd41T_EkxrR9cn1C9lIGz71QyR6k7EVGCeIlT6JgTUPyYVKBasKlANfRYDxGxw05IVMyZeVLS2NjpjRMyroodGpvBjbShCVDJo2Y0z3_FGZsnwLpOHFX74QmpiHkjMif-F62Box6got3vTgNbjlfWRd_U2I2S8scMDu6fxf9OdBww"/><div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1 rounded-full flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1">verified</span><span class="text-label-sm uppercase tracking-wider">Disponible</span></div></div><div class="flex justify-between items-start mb-4"><div><h3 class="font-headline-md mb-2">Modern Family Home</h3><p class="text-secondary font-body-md max-w-md">A stunning modern home with open living space, a private pool, and a spacious backyard.</p></div><div class="text-right"><p class="font-headline-md text-primary">$4,500,000</p></div></div><div class="flex flex-wrap justify-between items-center gap-4"><div class="flex gap-6 text-secondary font-label-sm"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">square_foot</span> 2.100 m²</span><span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bed</span> 6 Dorm</span><span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bathtub</span> 3 Baños</span></div><button class="px-8 py-3 bg-primary text-white rounded-lg font-label-sm hover:bg-opacity-90 transition-all duration-300">DETALLES</button></div></div><!-- Property Card 2 (Partial) --><div class="min-w-[300px] md:min-w-[600px] group opacity-40 hover:opacity-100 transition-opacity duration-300"><div class="relative aspect-[16/10] rounded-xl overflow-hidden mb-6"><img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFbQ_BtT2kmpIszcA2mKrZ5554P9AmNRM6NyGVkDN5h4osdo9HPfSR7aEvKIpN6ss5g5Z0jp82EdkNPSc_uI-aWmE3uHbvdO22BbFBzBCgzX6-oNUi0oCBqkmzaf81mfOzt0fLzCU5YDkmpkB0kBsRo8sQUtCgBuhPekAYFxIpBb_CeBSAIzOR7w0HBnEW9ibVqmqnPocySc5h0oseElXeugpJcIqoHlkDxvqXF2br4vL0gA-SIKezwAkeN0l2GWH9jj7nFkFCMLXQ"/><div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1 rounded-full flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1">verified</span><span class="text-label-sm uppercase tracking-wider">Disponible</span></div></div><div class="flex justify-between items-start mb-4"><div><h3 class="font-headline-md mb-2">Luxury Beachfront Villa</h3><p class="text-secondary font-body-md max-w-md">A breathtaking villa with ocean views, a private beach, and premium finishes.</p></div><div class="text-right"><p class="font-headline-md text-primary">$6,200,000</p></div></div><div class="flex flex-wrap justify-between items-center gap-4"><div class="flex gap-6 text-secondary font-label-sm"><span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">square_foot</span> 3.500 m²</span><span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bed</span> 8 Dorm</span><span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bathtub</span> 5 Baños</span></div><button class="px-8 py-3 bg-primary text-white rounded-lg font-label-sm hover:bg-opacity-90 transition-all duration-300">DETALLES</button></div></div></div><div class="flex justify-center gap-2 mt-4"><button aria-label="Go to slide 1" class="w-2 h-2 rounded-full bg-primary transition-all duration-300" data-index="0"></button><button aria-label="Go to slide 2" class="w-2 h-2 rounded-full bg-outline/30 hover:bg-outline/50 transition-all duration-300" data-index="1"></button><button aria-label="Go to slide 3" class="w-2 h-2 rounded-full bg-outline/30 hover:bg-outline/50 transition-all duration-300" data-index="2"></button><button aria-label="Go to slide 4" class="w-2 h-2 rounded-full bg-outline/30 hover:bg-outline/50 transition-all duration-300" data-index="3"></button></div></div></section><section class="py-stack-lg overflow-hidden" id="blog">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-16 reveal fade-in-up">
+<h2 class="font-display-lg text-display-lg">Explora por Estilo</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-gutter px-margin-mobile md:px-margin-desktop h-[800px]">
+<div class="col-span-1 row-span-2 rounded-[40px] overflow-hidden relative group reveal fade-in delay-100">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNan4aTquhj_5WhpHpvv7C0optiPUXOdrXc4d7cZ4IQlPTH6ejJd0Ns-ujoDlSvQ7uT0GwgSkPm9-8UwECZPU8GChCE_HmUE9n8owe57VY8eA1pT4YMjY-yW5RQ02UbKp_Pzqw0qqJ1pO0SY4y4RErSe2g8hd_Z_FzZ3xFVvmyBs9mp2TXrMG23drYgm2aKfGSh-8SzA4CCC-YpuXyh5aOoYz2ZCaL_IarOrP9HW6Avwr7li668E8f9NbaSXcbwQHg2p052yE74r1B"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-10">
+<h4 class="text-white font-headline-md">Vida Urbana</h4>
+</div>
+</div>
+<div class="col-span-2 row-span-1 rounded-[40px] overflow-hidden relative group reveal fade-in delay-200">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA44tb9tOl_6Vte55z3cSnDdCUcjRvuS81YqWs_ao0aF8a6Id7WsXH4VPUDCfCu_l3hESIn9PD3Pfdf78j9MmKaOcyv96IQfNXbcy7GzmoL-xLiBQ-J5Bj0zUUC6JHLyzcpXRUTAButcKIButAPHRjcpyRMKMJr46HNkHHQBczEfaJ5GCNMOGu--Rx1bsvFQMRZTWL38LUW8GO94ngWbkNDCO0FI9yRZx_jvMa_zBPhdA5W3BeakkkPlP75FmHyAGPr8B8SLjUew-hT"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-10">
+<h4 class="text-white font-headline-md">Ecológicas</h4>
+</div>
+</div>
+<div class="col-span-1 row-span-1 rounded-[40px] overflow-hidden relative group reveal fade-in delay-300">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhxDGpMVERsuft1MKEpfQ8XWQBH11c6MqnSg7ZRcBXZ6OV61YB7gzncSro_huG4LRsNZmHF0v5UMv4E7azEeFqx2VczSCQpIMJQchQXRGlk-FRj5IlL-wzvywHns08IH8UUl3rCi9-UuUaMt0QZxx64xXRv3OCF31BS3LZn1kKtWYMnhclMlDOK098MEWzPQRCU2gRgUK0Jw2ChNxOmv07BK24m8WkYiTsjA25sYQ6bYAAxV_WXQcpE2n__YP3cPiIJ2HYZeOdFdFM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-10">
+<h4 class="text-white font-headline-md">Lujo</h4>
+</div>
+</div>
+<div class="col-span-1 row-span-1 rounded-[40px] overflow-hidden relative group reveal fade-in delay-200">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnKu4mdr5dpqxVFWlPVLUKNs957AeSXFDQwh5SpDm3frURV1VGBmJUFgsyXyAgw9qTlO4_d2g-SoycRXTPjldJjLimK_e-fLc0-hEXfF6IzeyIdqpNfIQm1V8xnRXhuN5AK3BRUMMOicuFOYFzcKuy7OAwTroNHhBQo37DP260vJ7bn6SzxM-4ifZgCk7gz7egADrFfJtURppGBlp2q5tkYOZixdC54_8t3GL002Wtmtuq9kTgUpSk4J905_letNXBkBN_SLeQImbx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-10">
+<h4 class="text-white font-headline-md">Casas de Campo</h4>
+</div>
+</div>
+<div class="col-span-2 row-span-1 rounded-[40px] overflow-hidden relative group reveal fade-in delay-300">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiJEPaAkjEaujS--Xjtk8J85YBaBrIj4-1YAHxR0vAa2gl1Mb4M1S746k9hHLLYq8Ms8QK03VkWMeeYv2yt9Q3IdI0ILs9r5QCjyXONd7kSwQsYtFDwLj1t4qicM83IILrzSEGDe7Qw8Y4Ta7WA3E31opKZLTPO114eMlJl2bNeROM4GEbCUt29CdSwx-29fi16liCs_gAtbr2gga3E7_5HyplGlaA6R2THulZXHnqBzObuXdhTfJ91xl2j3zSG5xAiTwl0J8IKUhL"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-10">
+<h4 class="text-white font-headline-md">Retiros de Invierno</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Carousel -->
+<section class="py-stack-lg bg-surface-container-low overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative">
+<div class="carousel-container overflow-hidden">
+<div class="carousel-track flex transition-transform duration-700 ease-in-out" id="testimonialTrack"><!-- Testimonial 1 -->
+<div class="carousel-item min-w-full flex flex-col md:flex-row gap-16 items-center px-4 md:px-20">
+<div class="flex-1 space-y-8 reveal fade-in">
+<span class="material-symbols-outlined text-primary text-6xl" style='font-variation-settings: "FILL" 1;'>format_quote</span>
+<h2 class="font-display-lg text-headline-lg italic">"KORA no solo nos encontró una casa, sino una obra de arte que ahora llamamos hogar. Su atención al detalle es inigualable."</h2>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden shadow-lg border border-white/20">
+<img alt="Elena Santamaría" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLsFkq-5_ouUgndasdXIcDsu6pdf5W218Gzn8epYoR99VsyAx3WHBVcx6RPbHyfGBcoLthyNC_s27I0GqDExro5NTRakHqPA07s-OQNTwenSBftya5iUMNdEK-iS9vcQBBNsb9Zd6pb0uM0OJMpX9qDMXD75FkslCPEqD-QmQAodY-Aij52yT6QwmcA8VV-AEQk3CZVf7FtMmInw9xNou6optel32YyIe3zYbXflgytIox-MEHIGHBIkEl8"/>
+</div>
+<div>
+<p class="font-label-lg">Elena Santamaría</p>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Inversora</p>
+</div>
+</div>
+</div>
+<div class="flex-1 hidden md:block reveal slide-in-right">
+<img class="rounded-[32px] w-full aspect-square object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0w0xqkPEwKQGuoYDUR8P99pvgoZstSaJFa5UaHQnKX9Dj1q8mDybxblkNgVvml8PIcjWbagfJwK3D-NW5KouyyAf5vGT0rJJsQvtzgt5DKdo0Lppb2n8BFgwYzVRWFTbsUoA6Ruu9xtecjkVo4N2q_3AAdM_jGgi0ii7hr_trtwc6kTPsT14fY6fduyjlgNLYtRY1WeZcf07sx6QlasMi25YBvD94ZtxKm7hBVhVkTBDAY-JtktUcxIAi6KqK1Pc4JSaAroZY3UB7"/>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="carousel-item min-w-full flex flex-col md:flex-row gap-16 items-center px-4 md:px-20">
+<div class="flex-1 space-y-8 reveal fade-in">
+<span class="material-symbols-outlined text-primary text-6xl" style='font-variation-settings: "FILL" 1;'>format_quote</span>
+<h2 class="font-display-lg text-headline-lg italic">"La discreción y el profesionalismo de KORA superaron todas mis expectativas. Encontraron la pieza perfecta para mi portfolio."</h2>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden shadow-lg border border-white/20">
+<img alt="David Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuOUjvwG0V6yH5pkJ9AhaKvQD8lXPlRT6G3aNvIElL96rnB4YeMFPoVuc5M8ZVsGHMc78Tbnt6jUxssH1C65D4RNinZmZfLeEtNEsmXq0RkF5LekAtYerQ1zUKnaKodjOAfowqFT3m2aIHAGdFJfNf2cDMbgPRvg1aPWTofctNkcS6dRJxKPgsDzW6FbJUK7laoLrmI2rtHkp_Xx86E9IepYHWcKpTT0hWjm9mlbr4Ywl10sgr4i68MQKj_"/>
+</div>
+<div>
+<p class="font-label-lg">David Chen</p>
+<p class="text-label-sm text-secondary uppercase tracking-widest">CEO de TechVision</p>
+</div>
+</div>
+</div>
+<div class="flex-1 hidden md:block reveal slide-in-right">
+<img class="rounded-[32px] w-full aspect-[16/9] object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFbQ_BtT2kmpIszcA2mKrZ5554P9AmNRM6NyGVkDN5h4osdo9HPfSR7aEvKIpN6ss5g5Z0jp82EdkNPSc_uI-aWmE3uHbvdO22BbFBzBCgzX6-oNUi0oCBqkmzaf81mfOzt0fLzCU5YDkmpkB0kBsRo8sQUtCgBuhPekAYFxIpBb_CeBSAIzOR7w0HBnEW9ibVqmqnPocySc5h0oseElXeugpJcIqoHlkDxvqXF2br4vL0gA-SIKezwAkeN0l2GWH9jj7nFkFCMLXQ"/>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="carousel-item min-w-full flex flex-col md:flex-row gap-16 items-center px-4 md:px-20">
+<div class="flex-1 space-y-8 reveal fade-in">
+<span class="material-symbols-outlined text-primary text-6xl" style='font-variation-settings: "FILL" 1;'>format_quote</span>
+<h2 class="font-display-lg text-headline-lg italic">"Como arquitecto, valoro la pureza de las líneas. KORA entiende el lenguaje del diseño contemporáneo como nadie."</h2>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden shadow-lg border border-white/20">
+<img alt="Sofía Rossi" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtJlt0-E9g_3VlVMaNe0eSOtYVGIccL5DAS6q-sh8xbxs4yKPQvUEdxklVX-JsIHBlxPh2W_bQI9n47dZnqvzF6IcDez79cBPKsqJa4c3Jayv6x6fhfzUhuAq6NDp1Khw2FAI9wM6c2bJORSFjDBtGYteagqfpevUdZHJ0nG5Dhwl7hYuXXyBF6cH1lvcJrpM2TTtG0QALeUZW9NZ0-tGAcy1WZRV2FNFjXCLRDFKgqc10IPmENk1rXxoLz"/>
+</div>
+<div>
+<p class="font-label-lg">Sofía Rossi</p>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Arquitecta Principal</p>
+</div>
+</div>
+</div>
+<div class="flex-1 hidden md:block reveal slide-in-right">
+<img class="rounded-[32px] w-full aspect-square object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB4whroTOvEcZqlCnSUcR4DsiaU3Y_PsRJcs5VFIlm4zcr_608SKY9O_rYF0htFPoIK9ziomuZyaYEbM6LhCADE48uob6aqERVyL3yaE64z69vLFkUN857uSt9J974ZFoqFVLJBMU05_HPiTsIUrAMyPxO6RFTMVwovvLFTgevUvPyK8-AOjPqqyzIlFgnLW_iVjXHJa9rn5p-LDXWTaBo5ywilraeoQoIUla5cd1dgA9EPoIoRbmvoNP_Y3Py6sLze0cWnI47m9_a"/>
+</div>
+</div>
+<!-- Testimonial 4 -->
+<div class="carousel-item min-w-full flex flex-col md:flex-row gap-16 items-center px-4 md:px-20">
+<div class="flex-1 space-y-8 reveal fade-in">
+<span class="material-symbols-outlined text-primary text-6xl" style='font-variation-settings: "FILL" 1;'>format_quote</span>
+<h2 class="font-display-lg text-headline-lg italic">"Buscábamos un retiro sostenible sin sacrificar la elegancia. El equipo de KORA nos guió hacia la elección perfecta."</h2>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden shadow-lg border border-white/20">
+<img alt="Marc Julià" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtHT42W35q-lYAe8DQqZV43If_3GfuQVKzLchSRkgGppRbBG5okqzO65YCQ1hijDjhqIyACy2xqbKJdaOIdvmdAlKIaAj_aYPznb6r8QVTKqcICjNTNPPi9e_BtMTR5GaEMVijPtcc70vuu_ajHZ0v_MvELQG1Rjq0XpbA51sH-TFAYw1Rp1KSOSIk9qXFO2kMyuBlCwKZDQGqfJV1sypwtjFjrnELYNAqXcMrGxwWKT3Odh9DYFmbTEp0"/>
+</div>
+<div>
+<p class="font-label-lg">Marc Julià</p>
+<p class="text-label-sm text-secondary uppercase tracking-widest">Fundador de EcoSmart</p>
+</div>
+</div>
+</div>
+<div class="flex-1 hidden md:block reveal slide-in-right">
+<img class="rounded-[32px] w-full aspect-[4/3] object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA44tb9tOl_6Vte55z3cSnDdCUcjRvuS81YqWs_ao0aF8a6Id7WsXH4VPUDCfCu_l3hESIn9PD3Pfdf78j9MmKaOcyv96IQfNXbcy7GzmoL-xLiBQ-J5Bj0zUUC6JHLyzcpXRUTAButcKIButAPHRjcpyRMKMJr46HNkHHQBczEfaJ5GCNMOGu--Rx1bsvFQMRZTWL38LUW8GO94ngWbkNDCO0FI9yRZx_jvMa_zBPhdA5W3BeakkkPlP75FmHyAGPr8B8SLjUew-hT"/>
+</div>
+</div></div>
+</div>
+<!-- Navigation Arrows -->
+<div class="absolute inset-y-0 left-0 flex items-center">
+<button class="w-12 h-12 rounded-lg bg-white/80 backdrop-blur shadow-lg border border-outline/10 flex items-center justify-center hover:bg-white transition-colors ml-4 md:-ml-6 group" id="prevBtn">
+<span class="material-symbols-outlined text-primary group-hover:-translate-x-1 transition-transform">chevron_left</span>
+</button>
+</div>
+<div class="absolute inset-y-0 right-0 flex items-center">
+<button class="w-12 h-12 rounded-lg bg-white/80 backdrop-blur shadow-lg border border-outline/10 flex items-center justify-center hover:bg-white transition-colors mr-4 md:-mr-6 group" id="nextBtn">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop" id="contacto">
+<div class="flex flex-col lg:flex-row gap-20">
+<div class="flex-1 reveal fade-in-up delay-100">
+<h2 class="font-display-lg text-display-lg mb-4">Pongámonos en <br/><span class="italic">contacto</span></h2>
+<p class="text-secondary mb-12 font-body-lg">¿Listo para encontrar la casa de tus sueños, realizar una inversión inteligente o necesitas asesoramiento inmobiliario?</p>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm uppercase tracking-widest text-secondary">Nombre</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-4 focus:ring-2 focus:ring-primary transition-all" placeholder="Tu nombre aquí" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm uppercase tracking-widest text-secondary">Apellido</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-4 focus:ring-2 focus:ring-primary transition-all" placeholder="Tu apellido aquí" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm uppercase tracking-widest text-secondary">Email</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-4 focus:ring-2 focus:ring-primary transition-all" placeholder="email@ejemplo.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm uppercase tracking-widest text-secondary">Teléfono</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-4 focus:ring-2 focus:ring-primary transition-all" placeholder="+34 000 000 000" type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm uppercase tracking-widest text-secondary">Mensaje</label>
+<textarea class="w-full bg-surface-container border-none rounded-lg p-4 focus:ring-2 focus:ring-primary transition-all" placeholder="¿Cómo podemos ayudarte?" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-5 rounded-lg font-label-lg uppercase tracking-widest hover:bg-opacity-90 active:scale-[0.98] transition-all duration-300">Enviar Mensaje</button>
+</form>
+</div>
+<div class="flex-1 min-h-[500px] rounded-[48px] overflow-hidden relative bg-surface-container reveal fade-in-up delay-200">
+<!-- Map Component Placeholder -->
+<div class="absolute inset-0 w-full h-full bg-cover" data-location="Madrid" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJ_VzdsOZ9GeptC-WYyTLRbJruv5h_qC8cEER3bI2KqirfVSxUEDAdbFfsr8F9TUPJmYkeAmyJ6SNeAZ0UiBwQPwkKgvYSJd2EYMSFzTnumt_DeytSgGTWwEHj8P_zEpBsK-312S2SNL7wW-KFewwWRQxVSoqUN_Y-V4QXwx_eBA_lnMtg4L-XfB1fTB3eLWtKFEe-6sNkx9jLA7BsDY2oYen3WX7nyvkykM8jg2EuwuhmT6ircD_y0_nT4Zq9hiZEvmksKfv0WfqQ");'></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 glass-effect p-4 rounded-3xl border border-white/20 shadow-2xl animate-bounce-slow backdrop-blur-md bg-white/20">
+<div class="h-32 rounded-lg overflow-hidden mb-3">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjWz2FpoN0T32jdsMKfTJd6ZTnpOpHRqKWJuR7RyyPhx6wp0cZtevPHvgiNVFggyP3o-2M6fJHU9DzajJs4ba45SoQClTb6AMtlXQEIe0UqDrfjRpwSofIPNgsPZOOnt3fNAIx5KupaoSLyax1a0W0nhym3Mv_Ijs8HEG9608gv6ccO9iAp0UkFzVVIU6vLhDCsRhhSlvsG5e5uG0nLhSrpAOy_KsSHCFticMqWg7L2dRybLcJeuDq3jFDCq9ZNM4NYKmvgkxPbXVw"/>
+</div>
+<p class="font-label-lg text-primary text-xs mb-1">Tranquil Vista Residences</p>
+<p class="text-[10px] text-secondary mb-3">Paseo de la Castellana, Madrid</p>
+<button class="w-full py-2 bg-black text-white rounded-lg text-[10px] uppercase font-bold transition-colors duration-300 hover:bg-opacity-80">Cómo llegar</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-tertiary text-on-tertiary w-full rounded-t-[48px]">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 flex flex-col gap-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-6">
+<p class="font-label-lg uppercase tracking-widest border-b border-white/10 pb-4">Enlaces Rápidos</p>
+<ul class="space-y-3 font-body-md text-on-tertiary/60">
+<li class=""><a class="hover:text-on-tertiary transition-colors" href="#">Propiedades</a></li>
+<li class=""><a class="hover:text-on-tertiary transition-colors" href="#">Servicios</a></li>
+<li class=""><a class="hover:text-on-tertiary transition-colors" href="#">Sobre Nosotros</a></li>
+<li class=""><a class="hover:text-on-tertiary transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<p class="font-label-lg uppercase tracking-widest border-b border-white/10 pb-4">Recursos</p>
+<ul class="space-y-3 font-body-md text-on-tertiary/60">
+<li class=""><a class="hover:text-on-tertiary transition-colors" href="#">Centro de Ayuda</a></li>
+<li class=""><a class="hover:text-on-tertiary transition-colors" href="#">Documentación</a></li>
+<li class=""><a class="hover:text-on-tertiary transition-colors" href="#">API Reference</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<p class="font-label-lg uppercase tracking-widest border-b border-white/10 pb-4">Contacto</p>
+<ul class="space-y-3 font-body-md text-on-tertiary/60">
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-sm">location_on</span> Calle de Serrano, Madrid</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-sm">call</span> +34 910 000 000</li>
+<li class="flex items-center gap-3"><span class="material-symbols-outlined text-sm">mail</span> info@korarealty.com</li>
+</ul>
+</div>
+<div class="space-y-6">
+<p class="font-label-lg uppercase tracking-widest border-b border-white/10 pb-4">Newsletter</p>
+<div class="flex bg-white/5 rounded-full p-1 border border-white/10">
+<input class="bg-transparent border-none focus:ring-0 flex-1 px-6 text-on-tertiary text-sm" placeholder="Tu email" type="email"/>
+<button class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="relative py-10">
+<div class="w-full max-w-md mx-auto flex justify-center">kora</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-10 font-body-md text-on-tertiary/40">
+<p class="">© 2024 KORA. Exclusivity through Simplicity.</p>
+<div class="flex gap-8 mt-4 md:mt-0">
+<a class="hover:text-on-tertiary transition-colors" href="#">Privacidad</a>
+<a class="hover:text-on-tertiary transition-colors" href="#">Términos</a>
+<a class="hover:text-on-tertiary transition-colors" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+<script class="">
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+</script>
+<script>
+(function() {
+    // Properties Carousel Logic
+    const propTrack = document.getElementById('propertiesTrack');
+    const propPrev = document.getElementById('propPrevBtn');
+    const propNext = document.getElementById('propNextBtn');
+    let propIndex = 0;
+
+    function updatePropCarousel() {
+        if (!propTrack || propTrack.children.length === 0) return;
+        const itemWidth = propTrack.children[0].offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(propTrack).gap) || 0;
+        const move = itemWidth + gap;
+        propTrack.style.transform = `translateX(-${propIndex * move}px)`;
+    }
+
+    if (propTrack && propPrev && propNext) {
+        propNext.addEventListener('click', () => {
+            if (propIndex < propTrack.children.length - 1) {
+                propIndex++;
+                updatePropCarousel();
+            }
+        });
+        propPrev.addEventListener('click', () => {
+            if (propIndex > 0) {
+                propIndex--;
+                updatePropCarousel();
+            }
+        });
+        window.addEventListener('resize', updatePropCarousel);
+    }
+
+    // Testimonials Carousel Logic
+    const testTrack = document.getElementById('testimonialTrack');
+    const testPrev = document.getElementById('prevBtn');
+    const testNext = document.getElementById('nextBtn');
+    let testIndex = 0;
+
+    function updateTestimonial() {
+        if (!testTrack || testTrack.children.length === 0) return;
+        const items = testTrack.querySelectorAll('.carousel-item');
+        if (testIndex >= items.length) testIndex = items.length - 1;
+        if (testIndex < 0) testIndex = 0;
+        testTrack.style.transform = `translateX(-${testIndex * 100}%)`;
+    }
+
+    if (testTrack && testPrev && testNext) {
+        const testItems = testTrack.querySelectorAll('.carousel-item');
+        testNext.addEventListener('click', () => {
+            if (testIndex < testItems.length - 1) {
+                testIndex++;
+                updateTestimonial();
+            } else {
+                testIndex = 0; // Loop back to start
+                updateTestimonial();
+            }
+        });
+        testPrev.addEventListener('click', () => {
+            if (testIndex > 0) {
+                testIndex--;
+                updateTestimonial();
+            } else {
+                testIndex = testItems.length - 1; // Loop to end
+                updateTestimonial();
+            }
+        });
+    }
+
+    // Intersection Observer for Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+})();
+</script>
+</body></html>
