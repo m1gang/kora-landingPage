@@ -1,18 +1,27 @@
 ---
 import { getImage } from "astro:assets";
 import hero1 from "../assets/images/hero1.webp";
-import hero2 from "../assets/images/hero2.webp";
-import hero3 from "../assets/images/hero3.webp";
+import hero2 from "../assets/images/hero2kora.webp";
+// import hero3 from "../assets/images/hero3.webp";
 
 const optimizedHero1 = await getImage({ src: hero1 });
 const optimizedHero2 = await getImage({ src: hero2 });
-const optimizedHero3 = await getImage({ src: hero3 });
+// const optimizedHero3 = await getImage({ src: hero3 });
 ---
 
-<section class="relative overflow-hidden p-3" id="propiedades">
+<section class="relative overflow-hidden p-3 h-screen" id="propiedades">
+  <svg class="absolute w-0 h-0" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="heroNotchClip" clipPathUnits="objectBoundingBox">
+        <path
+          d="M 0.016000 0.000000 L 0.984000 0.000000 A 0.016000 0.027586 0 0 1 1.000000 0.027586 L 1.000000 0.972414 A 0.016000 0.027586 0 0 1 0.984000 1.000000 L 0.400000 1.000000 A 0.021333 0.036782 0 0 1 0.384913 0.989230 L 0.354753 0.937207 A 0.021333 0.036782 0 0 0 0.339667 0.926437 L 0.016000 0.926437 A 0.016000 0.027586 0 0 1 0.000000 0.898851 L 0.000000 0.027586 A 0.016000 0.027586 0 0 1 0.016000 0.000000 Z"
+        ></path>
+      </clipPath>
+    </defs>
+  </svg>
   <div
-    class="relative h-[875px] w-full overflow-hidden group hero-notch"
-    style='clip-path: path("M 24 0 L 1500 0 A 24 24 0 0 1 1500 24 L 1500 846 A 24 24 0 0 1 1256 870 L 600 870 A 32 32 0 0 1 572 854 L 540 822 A 32 32 0 0 0 512 806 L 24 806 A 24 24 0 0 1 0 782 L 0 24 A 24 24 0 0 1 24 0 Z");'
+    class="relative h-full w-full overflow-hidden group hero-notch"
+    style="clip-path: url(#heroNotchClip);"
   >
     <div
       class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out group-hover:scale-105 rounded-2xl opacity-100"
@@ -24,11 +33,11 @@ const optimizedHero3 = await getImage({ src: hero3 });
       style={`background-image: url(${optimizedHero2.src});`}
     >
     </div>
-    <div
+    <!-- <div
       class="hero-slide absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out group-hover:scale-105 rounded-2xl opacity-0"
       style={`background-image: url(${optimizedHero3.src});`}
     >
-    </div>
+    </div> -->
     <div
       class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
     >
@@ -71,14 +80,16 @@ const optimizedHero3 = await getImage({ src: hero3 });
     </div>
   </div>
   <div
-    class="md:absolute md:left-12 flex gap-4 mt-8 md:mt-0 px-4 md:bottom-8 transition-all duration-300 z-50 reveal fade-in delay-200"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 md:left-12 md:translate-x-0 flex gap-4 px-4 transition-all duration-300 z-50 reveal fade-in delay-200"
   >
     <button
-      class="hero-dot group relative h-2.5 w-28 overflow-hidden -skew-x-12 bg-green-500/20 border border-white/10 rounded-sm cursor-pointer transition-all duration-300"
+      class="hero-dot group relative h-2.5 w-28 overflow-hidden -skew-x-12 bg-white/20 border border-[#1E2820]/10 rounded-sm cursor-pointer transition-all duration-300"
       data-slide="0"
       aria-label="Slide 1"
     >
-      <div class="hero-dot-progress absolute left-0 top-0 h-full w-0 bg-white">
+      <div
+        class="hero-dot-progress absolute left-0 top-0 h-full w-0 bg-[#1E2820]"
+      >
       </div>
     </button>
     <button
