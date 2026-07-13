@@ -1,23 +1,35 @@
 ---
 import { Image } from "astro:assets";
-import logoKora from "../assets/icons/isotipo.svg";
+import logoKora from "../assets/icons/imagotipo2.svg";
+import logoIsotipo from "../assets/icons/isotipo.svg";
 ---
 
-<header id="mainHeader" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out py-6">
+<header
+  id="mainHeader"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out mix-blend-difference py-6 text-white"
+>
   <nav
+    id="mainNav"
     class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto transition-all duration-500 ease-in-out"
   >
     <a
-      class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tighter transition-all duration-500 ease-in-out"
+      class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tighter transition-all duration-500 ease-in-out flex items-center"
       href="#inicio"
     >
       <Image
+        id="logoImagotipo"
         src={logoKora}
         alt="KORA Logo"
-        class="h-10 md:h-12 w-auto transition-all duration-500 ease-in-out logo-svg"
+        class="h-10 md:h-12 w-auto transition-all duration-500 ease-in-out invert brightness-0 hidden lg:block"
+      />
+      <Image
+        id="logoIsotipo"
+        src={logoIsotipo}
+        alt="KORA Isotipo"
+        class="h-10 md:h-12 w-auto transition-all duration-500 ease-in-out invert brightness-0 block lg:hidden"
       />
     </a>
-    <div class="hidden md:flex gap-10 items-center">
+    <div id="navLinks" class="hidden md:flex gap-10 items-center">
       <a
         class="nav-link font-label-lg text-label-lg border-b-2 border-transparent pb-1 transition-colors duration-300"
         href="#inicio">Inicio</a
@@ -39,88 +51,264 @@ import logoKora from "../assets/icons/isotipo.svg";
         href="#blog">Estilos</a
       >
     </div>
-    <a
-      id="headerContactBtn"
-      class="bg-white text-black font-black px-8 py-3 rounded-lg font-label-lg hover:bg-opacity-90 active:scale-95 border border-transparent transition-all duration-300 inline-block"
-      href="#contacto">Contacto</a
-    >
+    <div class="flex items-center gap-4">
+      <a
+        id="headerContactBtn"
+        class="bg-white text-black font-black px-8 py-3 rounded-full font-label-lg hover:bg-opacity-90 active:scale-95 border border-transparent transition-all duration-300 hidden md:inline-block"
+        href="#contacto">Contacto</a
+      >
+      <!-- Hamburger Toggle -->
+      <button
+        id="mobileMenuToggle"
+        class="flex md:hidden flex-col justify-between w-6 h-4 cursor-pointer focus:outline-none z-50 text-white"
+        aria-label="Toggle Menu"
+      >
+        <span class="w-full h-[2px] rounded-full line-1"></span>
+        <span class="w-full h-[2px] rounded-full line-2"></span>
+        <span class="w-full h-[2px] rounded-full line-3"></span>
+      </button>
+    </div>
   </nav>
+
+  <!-- Mobile Menu Panel -->
+  <div
+    id="mobileMenu"
+    class="fixed inset-0 top-0 left-0 w-full h-screen bg-neutral-950/98 backdrop-blur-xl flex flex-col justify-center items-center gap-8 transition-all duration-500 ease-in-out translate-x-full z-40"
+  >
+    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#inicio">Inicio</a>
+    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#nosotros">Nosotros</a>
+    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#servicios">Servicios</a>
+    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#propiedades-destacadas">Propiedades</a>
+    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#blog">Estilos</a>
+    <a
+      class="bg-white text-black font-black px-10 py-4 rounded-full font-label-lg hover:bg-opacity-90 active:scale-95 transition-all duration-300 mt-4 inline-block"
+      href="#contacto"
+    >
+      Contacto
+    </a>
+  </div>
 </header>
 
 <style>
-  /* Header default state (over hero) */
-  #mainHeader {
-    color: white;
-  }
-  .logo-svg {
-    filter: brightness(0) invert(1);
-  }
-
-  /* Scrolled state */
-  #mainHeader.scrolled {
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    padding-top: 12px;
-    padding-bottom: 12px;
-    color: #0A1128;
-  }
-  #mainHeader.scrolled .logo-svg {
-    filter: none;
-    height: 32px;
-  }
-  #mainHeader.scrolled #headerContactBtn {
-    background-color: #0A1128;
-    color: white;
-  }
-  #mainHeader.scrolled #headerContactBtn:hover {
-    background-color: #1a2544;
+  #mainHeader,
+  #mainNav,
+  #logoImagotipo,
+  #logoIsotipo,
+  #headerContactBtn,
+  #navLinks {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Active nav link */
+  .scrolled-nav {
+    background-color: rgba(10, 10, 10, 0.342); /* Blurred black background */
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    max-width: 900px;
+  }
+
+  /* Keep side margin spacing on smaller screens when scrolled */
+  @media (max-width: 1024px) {
+    .scrolled-nav {
+      margin-left: 10px;
+      margin-right: 10px;
+      width: calc(100% - 20px);
+    }
+  }
+
+  /* Compact scaling on scroll */
+  .scrolled-logo {
+    height: 1.75rem !important;
+  }
+
+  /* Default responsive visibility for logos */
+  #logoImagotipo {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    #logoImagotipo {
+      display: block;
+    }
+  }
+
+  #logoIsotipo {
+    display: block;
+  }
+  @media (min-width: 1024px) {
+    #logoIsotipo {
+      display: none;
+    }
+  }
+
+  /* Forces Isotipo to display and Imagotipo to hide when scrolled on any screen */
+  .scrolled-nav #logoImagotipo {
+    display: none !important;
+  }
+  
+  .scrolled-nav #logoIsotipo {
+    display: block !important;
+  }
+
+  .scrolled-contact {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  .scrolled-links {
+    gap: 1.5rem !important;
+  }
+
+  .scrolled-links a {
+    font-size: 0.875rem !important;
+  }
+
   .nav-link.active {
     border-color: currentColor;
     font-weight: 700;
+  }
+
+  /* Hamburger lines styling and animation */
+  #mobileMenuToggle .line-1,
+  #mobileMenuToggle .line-2,
+  #mobileMenuToggle .line-3 {
+    background-color: currentColor;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #mobileMenuToggle.open .line-1 {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  #mobileMenuToggle.open .line-2 {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  #mobileMenuToggle.open .line-3 {
+    transform: rotate(-45deg) translate(5px, -5px);
   }
 </style>
 
 <script>
   function setupHeaderScroll() {
     const header = document.getElementById("mainHeader");
-    const heroSection = document.getElementById("inicio");
-    
-    if (!header) return;
+    const nav = document.getElementById("mainNav");
+    const logoImagotipo = document.getElementById("logoImagotipo");
+    const logoIsotipo = document.getElementById("logoIsotipo");
+    const contactBtn = document.getElementById("headerContactBtn");
+    const linksContainer = document.getElementById("navLinks");
+    const toggle = document.getElementById("mobileMenuToggle");
+
+    if (!header || !nav || !logoImagotipo || !logoIsotipo) return;
 
     const handleScroll = () => {
-      const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
-      // Scroll past hero triggers style change (e.g. 80px before end of hero)
-      if (window.scrollY > heroHeight - 120) {
-        header.classList.add("scrolled");
+      // Don't apply scroll changes if mobile menu is currently open
+      if (toggle && toggle.classList.contains("open")) return;
+
+      // Trigger scroll changes when scrolling down past 80px
+      if (window.scrollY > 80) {
+        header.classList.remove("mix-blend-difference", "py-6");
+        header.classList.add("py-2");
+
+        nav.classList.add("scrolled-nav");
+        nav.classList.remove("px-margin-mobile", "md:px-margin-desktop");
+
+        // Apply compact sizes
+        logoImagotipo.classList.add("scrolled-logo");
+        logoIsotipo.classList.add("scrolled-logo");
+        if (contactBtn) {
+          contactBtn.classList.add("scrolled-contact");
+          contactBtn.classList.remove("bg-white", "text-black");
+          contactBtn.classList.add("bg-white", "text-black");
+        }
+        if (linksContainer) linksContainer.classList.add("scrolled-links");
       } else {
-        header.classList.remove("scrolled");
+        header.classList.add("mix-blend-difference", "py-6");
+        header.classList.remove("py-2");
+
+        nav.classList.remove("scrolled-nav");
+        nav.classList.add("px-margin-mobile", "md:px-margin-desktop");
+
+        // Restore default sizes
+        logoImagotipo.classList.remove("scrolled-logo");
+        logoIsotipo.classList.remove("scrolled-logo");
+        if (contactBtn) {
+          contactBtn.classList.remove("scrolled-contact");
+        }
+        if (linksContainer) linksContainer.classList.remove("scrolled-links");
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
+  }
+
+  function setupMobileMenu() {
+    const toggle = document.getElementById("mobileMenuToggle");
+    const menu = document.getElementById("mobileMenu");
+    const header = document.getElementById("mainHeader");
+    const links = document.querySelectorAll(".mobile-nav-link");
+
+    if (!toggle || !menu || !header) return;
+
+    const toggleMenu = () => {
+      const isOpen = toggle.classList.toggle("open");
+      menu.classList.toggle("translate-x-full", !isOpen);
+      menu.classList.toggle("translate-x-0", isOpen);
+
+      // Prevent scrolling on the body while menu is open
+      document.body.classList.toggle("overflow-hidden", isOpen);
+
+      // Disable blend mode on header when open so the panel renders clean black-glass
+      if (isOpen) {
+        header.classList.remove("mix-blend-difference");
+      } else {
+        // Only restore blend mode if not scrolled past 80px
+        if (window.scrollY <= 80) {
+          header.classList.add("mix-blend-difference");
+        }
+      }
+    };
+
+    toggle.addEventListener("click", toggleMenu);
+
+    // Close menu when clicking navigation links
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (toggle.classList.contains("open")) {
+          toggleMenu();
+        }
+      });
+    });
   }
 
   function setupActiveNav() {
     const navLinks = document.querySelectorAll(".nav-link");
-    const sections = Array.from(navLinks).map(link => {
-      const href = link.getAttribute("href");
-      if (href && href.startsWith("#")) {
-        return document.querySelector(href);
-      }
-      return null;
-    }).filter(Boolean) as HTMLElement[];
+    const sections = Array.from(navLinks)
+      .map((link) => {
+        const href = link.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          return document.querySelector(href);
+        }
+        return null;
+      })
+      .filter(Boolean) as HTMLElement[];
 
     const handleActiveLink = () => {
       let currentSectionId = "";
-      const scrollPosition = window.scrollY + 200; // Offset for trigger
+      const scrollPosition = window.scrollY + 200;
 
-      sections.forEach(section => {
+      sections.forEach((section) => {
         const top = section.offsetTop;
         const height = section.offsetHeight;
         if (scrollPosition >= top && scrollPosition < top + height) {
@@ -128,12 +316,7 @@ import logoKora from "../assets/icons/isotipo.svg";
         }
       });
 
-      // Special case: if we scrolled to bottom, active is last section (contacto)
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
-        // Contact is not in nav-link but header button. No change or active last style.
-      }
-
-      navLinks.forEach(link => {
+      navLinks.forEach((link) => {
         const href = link.getAttribute("href");
         if (href === `#${currentSectionId}`) {
           link.classList.add("active");
@@ -144,16 +327,15 @@ import logoKora from "../assets/icons/isotipo.svg";
     };
 
     window.addEventListener("scroll", handleActiveLink);
-    handleActiveLink(); // Initial check
+    handleActiveLink();
   }
 
-  // Support standard DOMContentLoaded and Astro transitions page load
-  document.addEventListener("DOMContentLoaded", () => {
+  function init() {
     setupHeaderScroll();
+    setupMobileMenu();
     setupActiveNav();
-  });
-  document.addEventListener("astro:page-load", () => {
-    setupHeaderScroll();
-    setupActiveNav();
-  });
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+  document.addEventListener("astro:page-load", init);
 </script>
