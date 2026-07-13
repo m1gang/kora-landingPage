@@ -10,7 +10,7 @@ import prop4 from "../assets/images/properties-4.webp";
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-12">
     <div class="flex flex-col md:flex-row justify-between items-end gap-6 reveal fade-in-up">
       <div class="max-w-2xl">
-        <h2 class="font-display-lg text-display-lg mb-4">Encuentra el hogar de tus sueños</h2>
+        <h2 class="font-display-lg text-display-lg mb-4">Encuentra la propiedad de tus sueños</h2>
         <p class="text-secondary font-body-lg">Explora nuestras exclusivas propiedades en las ubicaciones más prestigiosas de Perú. Tenemos el espacio perfecto para tu visión.</p>
       </div>
       <div class="flex gap-4 mb-2">
@@ -23,124 +23,141 @@ import prop4 from "../assets/images/properties-4.webp";
       </div>
     </div>
   </div>
+  
   <div class="relative px-margin-mobile md:px-margin-desktop overflow-hidden reveal fade-in delay-200">
     <div class="flex gap-gutter pb-8 transition-transform duration-500 ease-in-out" id="propertiesTrack">
       <!-- Property Card 1 -->
-      <div class="min-w-[300px] w-[85vw] md:w-[600px] md:min-w-[600px] group transition-all duration-300 relative-card">
-        <div class="relative aspect-[16/10] rounded-xl overflow-hidden mb-6">
+      <div class="min-w-[280px] w-[85vw] sm:w-[480px] md:w-[600px] md:min-w-[600px] group transition-all duration-300 relative-card">
+        <div class="relative aspect-[16/10] rounded-[24px] overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-all duration-300">
           <Image class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={prop1} alt="Penthouse en Miraflores" loading="lazy" />
-          <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1 rounded-full flex items-center gap-2">
-            <span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1">verified</span>
-            <span class="text-label-sm uppercase tracking-wider font-bold">Disponible</span>
+          <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
+            <span class="material-symbols-outlined text-sm text-primary font-bold" style="font-variation-settings: 'FILL' 1">verified</span>
+            <span class="text-label-sm uppercase tracking-wider font-bold text-black">Disponible</span>
           </div>
         </div>
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="font-headline-md text-headline-md mb-2">Penthouse Malecón de Miraflores</h3>
-            <p class="text-secondary font-body-md max-w-md">Espectacular penthouse con vista panorámica al mar, terraza privada, piscina templada y acabados de lujo.</p>
+        <div class="space-y-4">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2 sm:gap-4">
+            <h3 class="font-display-lg text-headline-md text-[#0A1128] font-bold group-hover:text-primary transition-colors duration-300">Penthouse Malecón de Miraflores</h3>
+            <span class="font-display-lg text-headline-md text-primary font-bold shrink-0">S/ 5,800,000</span>
           </div>
-          <div class="text-right">
-            <p class="font-headline-md text-headline-md text-primary">S/ 5,800,000</p>
+          <p class="text-secondary font-body-md leading-relaxed line-clamp-2">Espectacular penthouse con vista panorámica al mar, terraza privada, piscina templada y acabados de lujo.</p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">square_foot</span>
+              <span>320 m²</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">bed</span>
+              <span>4 Dorm.</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">bathtub</span>
+              <span>4.5 Baños</span>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-wrap justify-between items-center gap-4">
-          <div class="flex gap-6 text-secondary font-label-sm font-semibold">
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">square_foot</span> 320 m²</span>
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bed</span> 4 Dorm</span>
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bathtub</span> 4.5 Baños</span>
-          </div>
-          <button class="px-8 py-3 bg-primary text-white rounded-lg font-label-sm hover:bg-opacity-90 transition-all duration-300">DETALLES</button>
         </div>
       </div>
 
       <!-- Property Card 2 -->
-      <div class="min-w-[300px] w-[85vw] md:w-[600px] md:min-w-[600px] group transition-all duration-300 relative-card">
-        <div class="relative aspect-[16/10] rounded-xl overflow-hidden mb-6">
+      <div class="min-w-[280px] w-[85vw] sm:w-[480px] md:w-[600px] md:min-w-[600px] group transition-all duration-300 relative-card">
+        <div class="relative aspect-[16/10] rounded-[24px] overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-all duration-300">
           <Image class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={prop2} alt="Villa de Playa en Asia" loading="lazy" />
-          <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1 rounded-full flex items-center gap-2">
+          <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
             <span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1">verified</span>
-            <span class="text-label-sm uppercase tracking-wider font-bold">Disponible</span>
+            <span class="text-label-sm uppercase tracking-wider font-bold text-black">Disponible</span>
           </div>
         </div>
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="font-headline-md text-headline-md mb-2">Villa de Playa en Asia</h3>
-            <p class="text-secondary font-body-md max-w-md">Exclusiva casa frente al mar en la zona más segura de Asia (Km 97), con amplias terrazas y acabados de mármol.</p>
+        <div class="space-y-4">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2 sm:gap-4">
+            <h3 class="font-display-lg text-headline-md text-[#0A1128] font-bold group-hover:text-primary transition-colors duration-300">Villa de Playa en Asia</h3>
+            <span class="font-display-lg text-headline-md text-primary font-bold shrink-0">S/ 4,200,000</span>
           </div>
-          <div class="text-right">
-            <p class="font-headline-md text-headline-md text-primary">S/ 4,200,000</p>
+          <p class="text-secondary font-body-md leading-relaxed line-clamp-2">Exclusiva casa frente al mar en la zona más segura de Asia (Km 97), con amplias terrazas y acabados de mármol.</p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">square_foot</span>
+              <span>450 m²</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">bed</span>
+              <span>5 Dorm.</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">bathtub</span>
+              <span>6 Baños</span>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-wrap justify-between items-center gap-4">
-          <div class="flex gap-6 text-secondary font-label-sm font-semibold">
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">square_foot</span> 450 m²</span>
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bed</span> 5 Dorm</span>
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bathtub</span> 6 Baños</span>
-          </div>
-          <button class="px-8 py-3 bg-primary text-white rounded-lg font-label-sm hover:bg-opacity-90 transition-all duration-300">DETALLES</button>
         </div>
       </div>
 
       <!-- Property Card 3 -->
-      <div class="min-w-[300px] w-[85vw] md:w-[600px] md:min-w-[600px] group transition-all duration-300 relative-card">
-        <div class="relative aspect-[16/10] rounded-xl overflow-hidden mb-6">
+      <div class="min-w-[280px] w-[85vw] sm:w-[480px] md:w-[600px] md:min-w-[600px] group transition-all duration-300 relative-card">
+        <div class="relative aspect-[16/10] rounded-[24px] overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-all duration-300">
           <Image class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={prop3} alt="Residencia en La Molina" loading="lazy" />
-          <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1 rounded-full flex items-center gap-2">
+          <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
             <span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1">verified</span>
-            <span class="text-label-sm uppercase tracking-wider font-bold">Disponible</span>
+            <span class="text-label-sm uppercase tracking-wider font-bold text-black">Disponible</span>
           </div>
         </div>
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="font-headline-md text-headline-md mb-2">Moderna Residencia en La Molina</h3>
-            <p class="text-secondary font-body-md max-w-md">Imponente residencia con diseño contemporáneo y techos altos en Las Lagunas, rodeada de áreas verdes y total seguridad.</p>
+        <div class="space-y-4">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2 sm:gap-4">
+            <h3 class="font-display-lg text-headline-md text-[#0A1128] font-bold group-hover:text-primary transition-colors duration-300">Residencia en La Molina</h3>
+            <span class="font-display-lg text-headline-md text-primary font-bold shrink-0">S/ 3,900,000</span>
           </div>
-          <div class="text-right">
-            <p class="font-headline-md text-headline-md text-primary">S/ 3,900,000</p>
+          <p class="text-secondary font-body-md leading-relaxed line-clamp-2">Imponente residencia con diseño contemporáneo y techos altos en Las Lagunas, rodeada de áreas verdes y total seguridad.</p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">square_foot</span>
+              <span>550 m²</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">bed</span>
+              <span>4 Dorm.</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">bathtub</span>
+              <span>5 Baños</span>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-wrap justify-between items-center gap-4">
-          <div class="flex gap-6 text-secondary font-label-sm font-semibold">
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">square_foot</span> 550 m²</span>
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bed</span> 4 Dorm</span>
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bathtub</span> 5 Baños</span>
-          </div>
-          <button class="px-8 py-3 bg-primary text-white rounded-lg font-label-sm hover:bg-opacity-90 transition-all duration-300">DETALLES</button>
         </div>
       </div>
 
       <!-- Property Card 4 -->
-      <div class="min-w-[300px] w-[85vw] md:w-[600px] md:min-w-[600px] group transition-all duration-300 relative-card">
-        <div class="relative aspect-[16/10] rounded-xl overflow-hidden mb-6">
+      <div class="min-w-[280px] w-[85vw] sm:w-[480px] md:w-[600px] md:min-w-[600px] group transition-all duration-300 relative-card">
+        <div class="relative aspect-[16/10] rounded-[24px] overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-all duration-300">
           <Image class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={prop4} alt="Villa en Urubamba" loading="lazy" />
-          <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1 rounded-full flex items-center gap-2">
+          <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
             <span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1">verified</span>
-            <span class="text-label-sm uppercase tracking-wider font-bold">Disponible</span>
+            <span class="text-label-sm uppercase tracking-wider font-bold text-black">Disponible</span>
           </div>
         </div>
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="font-headline-md text-headline-md mb-2">Villas de Lujo en Urubamba</h3>
-            <p class="text-secondary font-body-md max-w-md">Hermosa villa orgánica integrada con el paisaje andino del Valle Sagrado, perfecta para reconectar con la naturaleza.</p>
+        <div class="space-y-4">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2 sm:gap-4">
+            <h3 class="font-display-lg text-headline-md text-[#0A1128] font-bold group-hover:text-primary transition-colors duration-300">Villas de Lujo en Urubamba</h3>
+            <span class="font-display-lg text-headline-md text-primary font-bold shrink-0">S/ 2,800,000</span>
           </div>
-          <div class="text-right">
-            <p class="font-headline-md text-headline-md text-primary">S/ 2,800,000</p>
+          <p class="text-secondary font-body-md leading-relaxed line-clamp-2">Hermosa villa orgánica integrada con el paisaje andino del Valle Sagrado, perfecta para reconectar con la naturaleza.</p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">square_foot</span>
+              <span>600 m²</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">bed</span>
+              <span>3 Dorm.</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#F3F3F4] px-4 py-2 rounded-xl text-secondary font-semibold text-sm">
+              <span class="material-symbols-outlined text-lg">bathtub</span>
+              <span>3.5 Baños</span>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-wrap justify-between items-center gap-4">
-          <div class="flex gap-6 text-secondary font-label-sm font-semibold">
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">square_foot</span> 600 m²</span>
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bed</span> 3 Dorm</span>
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">bathtub</span> 3.5 Baños</span>
-          </div>
-          <button class="px-8 py-3 bg-primary text-white rounded-lg font-label-sm hover:bg-opacity-90 transition-all duration-300">DETALLES</button>
         </div>
       </div>
     </div>
 
     <!-- Carousel Dots Indicators -->
     <div class="flex justify-center gap-3 mt-4" id="propertiesDots">
-      <button aria-label="Ir al slide 1" class="prop-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 active" data-index="0"></button>
+      <button aria-label="Ir al slide 1" class="prop-dot w-3 h-3 rounded-full bg-outline/30 hover:bg-outline/50 transition-all duration-300 active" data-index="0"></button>
       <button aria-label="Ir al slide 2" class="prop-dot w-3 h-3 rounded-full bg-outline/30 hover:bg-outline/50 transition-all duration-300" data-index="1"></button>
       <button aria-label="Ir al slide 3" class="prop-dot w-3 h-3 rounded-full bg-outline/30 hover:bg-outline/50 transition-all duration-300" data-index="2"></button>
       <button aria-label="Ir al slide 4" class="prop-dot w-3 h-3 rounded-full bg-outline/30 hover:bg-outline/50 transition-all duration-300" data-index="3"></button>
@@ -173,19 +190,43 @@ import prop4 from "../assets/images/properties-4.webp";
     let currentIndex = 0;
 
     const updateCarousel = () => {
+      const parent = track.parentElement;
+      if (!parent) return;
+
+      const containerWidth = parent.offsetWidth;
+      // Get the exact computed left and right padding to keep perfect alignment
+      const paddingLeft = parseFloat(window.getComputedStyle(parent).paddingLeft) || 0;
+      const paddingRight = parseFloat(window.getComputedStyle(parent).paddingRight) || 0;
+      const parentContentWidth = containerWidth - paddingLeft - paddingRight;
+
       const cardWidth = (cards[0] as HTMLElement).offsetWidth;
       const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
       const moveAmount = cardWidth + gap;
 
-      // On mobile, translate fully. On desktop, translate smoothly.
-      track.style.transform = `translateX(-${currentIndex * moveAmount}px)`;
+      const totalTrackWidth = track.scrollWidth;
+      
+      // Calculate the maximum possible translation to align the rightmost edge of the track
+      // with the parent's right padding boundary (preventing clipping / cut-off)
+      const maxTranslate = totalTrackWidth - parentContentWidth;
+
+      let translateAmount = currentIndex * moveAmount;
+
+      // Cap translation dynamically
+      if (translateAmount > maxTranslate && maxTranslate > 0) {
+        translateAmount = maxTranslate;
+      }
+      if (translateAmount < 0) {
+        translateAmount = 0;
+      }
+
+      track.style.transform = `translateX(-${translateAmount}px)`;
 
       // Update Card Opacity classes to match "active/inactive" style
       cards.forEach((card, i) => {
         if (i === currentIndex) {
           card.classList.remove("opacity-40");
         } else {
-          // Keep it semi-transparent on desktop if we want that gallery feel
+          // Semi-transparent for inactive cards only on desktop screens
           if (window.innerWidth >= 768) {
             card.classList.add("opacity-40");
           } else {
@@ -241,6 +282,7 @@ import prop4 from "../assets/images/properties-4.webp";
     updateCarousel();
   }
 
+  // Support both classic DOMContentLoaded and Astro transition page load
   document.addEventListener("DOMContentLoaded", setupPropertiesCarousel);
   document.addEventListener("astro:page-load", setupPropertiesCarousel);
 </script>
