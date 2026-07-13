@@ -36,37 +36,7 @@ import Footer from '../components/Footer.astro';
       });
     });
 
-    (function() {
-      // Properties Carousel Logic
-      const propTrack = document.getElementById('propertiesTrack');
-      const propPrev = document.getElementById('propPrevBtn');
-      const propNext = document.getElementById('propNextBtn');
-      let propIndex = 0;
-
-      function updatePropCarousel() {
-        if (!propTrack || propTrack.children.length === 0) return;
-        const itemWidth = propTrack.children[0].offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(propTrack).gap) || 0;
-        const move = itemWidth + gap;
-        propTrack.style.transform = `translateX(-${propIndex * move}px)`;
-      }
-
-      if (propTrack && propPrev && propNext) {
-        propNext.addEventListener('click', () => {
-          if (propIndex < propTrack.children.length - 1) {
-            propIndex++;
-            updatePropCarousel();
-          }
-        });
-        propPrev.addEventListener('click', () => {
-          if (propIndex > 0) {
-            propIndex--;
-            updatePropCarousel();
-          }
-        });
-        window.addEventListener('resize', updatePropCarousel);
-      }
-
+    function initGlobalScripts() {
       // Testimonials Carousel Logic
       const testTrack = document.getElementById('testimonialTrack');
       const testPrev = document.getElementById('prevBtn');
@@ -103,7 +73,7 @@ import Footer from '../components/Footer.astro';
         });
       }
 
-      // Intersection Observer for Scroll Animations
+      // Intersection Observer for Scroll Animations (Reveal)
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -118,6 +88,10 @@ import Footer from '../components/Footer.astro';
       document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
       });
-    })();
+    }
+
+    // Support standard DOMContentLoaded and Astro page transitions
+    document.addEventListener("DOMContentLoaded", initGlobalScripts);
+    document.addEventListener("astro:page-load", initGlobalScripts);
   </script>
 </BaseLayout>

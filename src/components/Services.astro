@@ -1,50 +1,57 @@
-<section class="py-stack-lg bg-surface" id="servicios">
+---
+import { Image } from "astro:assets";
+import services1 from "../assets/images/services-1.webp";
+import services2 from "../assets/images/services-2.webp";
+import services3 from "../assets/images/services-3.webp";
+---
+
+<section class="py-stack-lg bg-surface animate-on-scroll" id="servicios">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6 reveal fade-in">
-      <h2 class="font-display-lg text-display-lg">Expert Services for Buyers,<br/>Sellers, and Investors</h2>
+      <h2 class="font-display-lg text-display-lg">Servicios Expertos para<br/>Compradores, Vendedores e Inversores</h2>
       <div class="flex flex-wrap gap-2 justify-end max-w-md">
-        <span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Commercial</span>
-        <span class="px-6 py-2 bg-white text-black rounded-full border border-outline/10 font-label-sm shadow-sm">Property</span>
-        <span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">House</span>
-        <span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Store</span>
-        <span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Apartments</span>
+        <span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Comercial</span>
+        <span class="px-6 py-2 bg-white text-black rounded-full border border-outline/10 font-label-sm shadow-sm">Residencial</span>
+        <span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Casas</span>
+        <span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Locales</span>
+        <span class="px-6 py-2 bg-surface-container rounded-full border border-outline/10 font-label-sm">Departamentos</span>
       </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
       <div class="space-y-8 reveal fade-in-up delay-100 group hover:-translate-y-2 transition-transform duration-500">
         <div class="rounded-[32px] overflow-hidden aspect-[4/3] shadow-lg group-hover:shadow-xl transition-shadow duration-500">
-          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB4whroTOvEcZqlCnSUcR4DsiaU3Y_PsRJcs5VFIlm4zcr_608SKY9O_rYF0htFPoIK9ziomuZyaYEbM6LhCADE48uob6aqERVyL3yaE64z69vLFkUN857uSt9J974ZFoqFVLJBMU05_HPiTsIUrAMyPxO6RFTMVwovvLFTgevUvPyK8-AOjPqqyzIlFgnLW_iVjXHJa9rn5p-LDXWTaBo5ywilraeoQoIUla5cd1dgA9EPoIoRbmvoNP_Y3Py6sLze0cWnI47m9_a" alt="Casa moderna de lujo" loading="lazy" />
+          <Image class="w-full h-full object-cover" src={services1} alt="Búsqueda de propiedades premium" loading="lazy" />
         </div>
         <div class="space-y-4">
-          <h3 class="font-headline-md text-headline-md">Buy a home</h3>
-          <p class="text-secondary font-body-md">Find your place with an immersive photo experience and the most listings, including</p>
-          <button class="px-6 py-3 rounded-full border border-outline/20 font-label-sm flex items-center gap-2 hover:bg-surface-container transition-all duration-300">View Details <span class="material-symbols-outlined text-sm">arrow_outward</span></button>
+          <h3 class="font-headline-md text-headline-md">Comprar una Vivienda</h3>
+          <p class="text-secondary font-body-md">Encuentra tu lugar ideal con una experiencia personalizada en San Isidro, Miraflores y Barranco.</p>
+          <button class="px-6 py-3 rounded-full border border-outline/20 font-label-sm flex items-center gap-2 hover:bg-surface-container transition-all duration-300">Ver Detalles <span class="material-symbols-outlined text-sm">arrow_outward</span></button>
         </div>
       </div>
       <div class="space-y-8 md:pt-20 reveal fade-in-up delay-200 group hover:-translate-y-2 transition-transform duration-500">
         <div class="space-y-4 mb-8">
-          <h3 class="font-headline-md text-headline-md">Selling a home</h3>
-          <p class="text-secondary font-body-md">No matter what path you take to sell your home, we can help you navigate a successful sale.</p>
-          <button class="px-6 py-3 rounded-full border border-outline/20 font-label-sm flex items-center gap-2 hover:bg-surface-container transition-all duration-300">View Details <span class="material-symbols-outlined text-sm">arrow_outward</span></button>
+          <h3 class="font-headline-md text-headline-md">Vender una Propiedad</h3>
+          <p class="text-secondary font-body-md">Utilizamos marketing de alta gama y herramientas tecnológicas para asegurar que tu propiedad destaque y se venda al mejor valor de mercado.</p>
+          <button class="px-6 py-3 rounded-full border border-outline/20 font-label-sm flex items-center gap-2 hover:bg-surface-container transition-all duration-300">Ver Detalles <span class="material-symbols-outlined text-sm">arrow_outward</span></button>
         </div>
         <div class="rounded-[32px] overflow-hidden aspect-[4/3] shadow-lg group-hover:shadow-xl transition-shadow duration-500">
-          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQpe1d2aLnL75Ocm9cVv6k1_lDRO-lSnU4T7O1y-fyuRWkfMA2hkCewK4pUdPOK__cS6bbY0-hghEsAqbd1FTZpk2Mv4Q-uAldoHoi-QzGHy54tVFQMtuO1fSWz6ZC_FqXYsjBOMZ2VL5R_K2uZDoXezcR0YU6TSbQmQzAmY7Pf-BYYLqLgmzjIq6sZlNa3EhTEKa-f5I3cPSghEeJJkrJVBjSyMtkncfUDgOxSeavcjZTzDNUZHigHWj00J_xP09rPKpmPuJ6Amms" alt="Sala de estar minimalista" loading="lazy" />
+          <Image class="w-full h-full object-cover" src={services2} alt="Venta de casas exclusivas" loading="lazy" />
         </div>
       </div>
       <div class="space-y-8 reveal fade-in-up delay-300 group hover:-translate-y-2 transition-transform duration-500">
         <div class="rounded-[32px] overflow-hidden aspect-[4/3] shadow-lg group-hover:shadow-xl transition-shadow duration-500 relative">
-          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9YNq-mXHVZ0_1SLny0SbkDkZ1elHZiR-eCr-h0N4E9lCLSuJHQhB3Bmn62dWdY3sQCr0g_C0FlBlSJDY9mIVbbEXv_pvAt-2VxBSlnIxj-8FxxKa1yVghTsuGMpCW9MNeUxf7zRbEnvbtjn_cPwc2zVCR1Pruw6LBgx2Fy8_l68ev2YjqrHxWjSk4Gx-f3qKzSngeT8zxO30EJ3sFTTgkgI08dVSBW1qyhCzo0wHfenuxuEa4bVMAOpBN1FwbIDt3hEQRZ8nFizZV" alt="Interior contemporáneo" loading="lazy" />
+          <Image class="w-full h-full object-cover" src={services3} alt="Alquileres de lujo gestionados" loading="lazy" />
           <div class="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Smart Home</span>
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Property</span>
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Store</span>
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Apartments</span>
+            <span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Lujo</span>
+            <span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Garantía</span>
+            <span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Asesoría</span>
+            <span class="px-3 py-1 bg-black/40 backdrop-blur-md text-white rounded-full text-[10px] uppercase">Contratos</span>
           </div>
         </div>
         <div class="space-y-4">
-          <h3 class="font-headline-md text-headline-md">Rent a home</h3>
-          <p class="text-secondary font-body-md">We're creating a seamless online experience – from shopping on the largest rental network</p>
-          <button class="px-8 py-3 bg-tertiary text-on-tertiary rounded-full font-label-sm flex items-center gap-2 hover:scale-105 transition-all duration-300">View Details <span class="material-symbols-outlined text-sm">arrow_outward</span></button>
+          <h3 class="font-headline-md text-headline-md">Renta Exclusiva</h3>
+          <p class="text-secondary font-body-md">Gestionamos alquileres de lujo con contratos garantizados y asesoría legal integral para tu tranquilidad.</p>
+          <button class="px-8 py-3 bg-tertiary text-on-tertiary rounded-full font-label-sm flex items-center gap-2 hover:scale-105 transition-all duration-300">Ver Detalles <span class="material-symbols-outlined text-sm">arrow_outward</span></button>
         </div>
       </div>
     </div>

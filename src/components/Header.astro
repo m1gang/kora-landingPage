@@ -1,43 +1,159 @@
 ---
 import { Image } from "astro:assets";
-import logoKora from "../assets/icons/imagotipo2.svg";
+import logoKora from "../assets/icons/isotipo.svg";
 ---
 
-<header class="m-4 rounded-xl fixed top-0 w-full z-50 mix-blend-difference">
+<header id="mainHeader" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out py-6">
   <nav
-    class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto"
+    class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto transition-all duration-500 ease-in-out"
   >
     <a
-      class="font-display-lg-mobile text-display-lg-mobile font-bold text-white tracking-tighter"
-      href="/"
+      class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tighter transition-all duration-500 ease-in-out"
+      href="#inicio"
     >
       <Image
         src={logoKora}
         alt="KORA Logo"
-        class="h-12 w-auto brightness-0 invert"
+        class="h-10 md:h-12 w-auto transition-all duration-500 ease-in-out logo-svg"
       />
     </a>
     <div class="hidden md:flex gap-10 items-center">
       <a
-        class="font-label-lg text-label-lg text-white border-b-2 border-white pb-1 transition-colors duration-300"
-        href="#propiedades">Propiedades</a
+        class="nav-link font-label-lg text-label-lg border-b-2 border-transparent pb-1 transition-colors duration-300"
+        href="#inicio">Inicio</a
       >
       <a
-        class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300"
-        href="#servicios">Servicios</a
-      >
-      <a
-        class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300"
+        class="nav-link font-label-lg text-label-lg border-b-2 border-transparent pb-1 transition-colors duration-300"
         href="#nosotros">Nosotros</a
       >
       <a
-        class="font-label-lg text-label-lg text-white/80 hover:text-white transition-colors duration-300"
-        href="#blog">Blog</a
+        class="nav-link font-label-lg text-label-lg border-b-2 border-transparent pb-1 transition-colors duration-300"
+        href="#servicios">Servicios</a
+      >
+      <a
+        class="nav-link font-label-lg text-label-lg border-b-2 border-transparent pb-1 transition-colors duration-300"
+        href="#propiedades-destacadas">Propiedades</a
+      >
+      <a
+        class="nav-link font-label-lg text-label-lg border-b-2 border-transparent pb-1 transition-colors duration-300"
+        href="#blog">Estilos</a
       >
     </div>
     <a
-      class="bg-white text-black font-black px-8 py-3 rounded-lg font-label-lg hover:bg-opacity-90 active:scale-95 transition-all duration-300 inline-block"
+      id="headerContactBtn"
+      class="bg-white text-black font-black px-8 py-3 rounded-lg font-label-lg hover:bg-opacity-90 active:scale-95 border border-transparent transition-all duration-300 inline-block"
       href="#contacto">Contacto</a
     >
   </nav>
 </header>
+
+<style>
+  /* Header default state (over hero) */
+  #mainHeader {
+    color: white;
+  }
+  .logo-svg {
+    filter: brightness(0) invert(1);
+  }
+
+  /* Scrolled state */
+  #mainHeader.scrolled {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #0A1128;
+  }
+  #mainHeader.scrolled .logo-svg {
+    filter: none;
+    height: 32px;
+  }
+  #mainHeader.scrolled #headerContactBtn {
+    background-color: #0A1128;
+    color: white;
+  }
+  #mainHeader.scrolled #headerContactBtn:hover {
+    background-color: #1a2544;
+  }
+
+  /* Active nav link */
+  .nav-link.active {
+    border-color: currentColor;
+    font-weight: 700;
+  }
+</style>
+
+<script>
+  function setupHeaderScroll() {
+    const header = document.getElementById("mainHeader");
+    const heroSection = document.getElementById("inicio");
+    
+    if (!header) return;
+
+    const handleScroll = () => {
+      const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+      // Scroll past hero triggers style change (e.g. 80px before end of hero)
+      if (window.scrollY > heroHeight - 120) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+  }
+
+  function setupActiveNav() {
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = Array.from(navLinks).map(link => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        return document.querySelector(href);
+      }
+      return null;
+    }).filter(Boolean) as HTMLElement[];
+
+    const handleActiveLink = () => {
+      let currentSectionId = "";
+      const scrollPosition = window.scrollY + 200; // Offset for trigger
+
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPosition >= top && scrollPosition < top + height) {
+          currentSectionId = section.id;
+        }
+      });
+
+      // Special case: if we scrolled to bottom, active is last section (contacto)
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+        // Contact is not in nav-link but header button. No change or active last style.
+      }
+
+      navLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === `#${currentSectionId}`) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleActiveLink);
+    handleActiveLink(); // Initial check
+  }
+
+  // Support standard DOMContentLoaded and Astro transitions page load
+  document.addEventListener("DOMContentLoaded", () => {
+    setupHeaderScroll();
+    setupActiveNav();
+  });
+  document.addEventListener("astro:page-load", () => {
+    setupHeaderScroll();
+    setupActiveNav();
+  });
+</script>

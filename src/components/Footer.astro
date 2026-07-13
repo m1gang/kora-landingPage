@@ -14,24 +14,30 @@ import logoKora from "../assets/icons/imagotipo.svg";
         >
           Enlaces Rápidos
         </p>
-        <ul class="space-y-3 font-body-md text-on-tertiary/60">
+        <ul class="space-y-3 font-body-md text-on-tertiary/60 font-semibold">
           <li>
-            <a class="hover:text-on-tertiary transition-colors" href="#"
+            <a class="hover:text-on-tertiary transition-colors" href="#inicio"
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a class="hover:text-on-tertiary transition-colors" href="#propiedades-destacadas"
               >Propiedades</a
             >
           </li>
           <li>
-            <a class="hover:text-on-tertiary transition-colors" href="#"
-              >Servicios</a
+            <a class="hover:text-on-tertiary transition-colors" href="#servicios"
+              >Nuestros Servicios</a
             >
           </li>
           <li>
-            <a class="hover:text-on-tertiary transition-colors" href="#"
-              >Sobre Nosotros</a
+            <a class="hover:text-on-tertiary transition-colors" href="#nosotros"
+              >Filosofía KORA</a
             >
           </li>
           <li>
-            <a class="hover:text-on-tertiary transition-colors" href="#">Blog</a
+            <a class="hover:text-on-tertiary transition-colors" href="#blog"
+              >Blog de Diseño</a
             >
           </li>
         </ul>
@@ -42,7 +48,7 @@ import logoKora from "../assets/icons/imagotipo.svg";
         >
           Recursos
         </p>
-        <ul class="space-y-3 font-body-md text-on-tertiary/60">
+        <ul class="space-y-3 font-body-md text-on-tertiary/60 font-semibold">
           <li>
             <a class="hover:text-on-tertiary transition-colors" href="#"
               >Centro de Ayuda</a
@@ -50,12 +56,12 @@ import logoKora from "../assets/icons/imagotipo.svg";
           </li>
           <li>
             <a class="hover:text-on-tertiary transition-colors" href="#"
-              >Documentación</a
+              >Guías de Compra</a
             >
           </li>
           <li>
             <a class="hover:text-on-tertiary transition-colors" href="#"
-              >API Reference</a
+              >Documentación Legal</a
             >
           </li>
         </ul>
@@ -66,17 +72,18 @@ import logoKora from "../assets/icons/imagotipo.svg";
         >
           Contacto
         </p>
-        <ul class="space-y-3 font-body-md text-on-tertiary/60">
-          <li class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-sm">location_on</span> Calle
-            de Serrano, Madrid
+        <ul class="space-y-3 font-body-md text-on-tertiary/60 font-semibold">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sm mt-1">location_on</span>
+            <span>Av. Javier Prado Este 1520, Edificio Capital, San Isidro, Lima - Perú</span>
           </li>
           <li class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-sm">call</span> +34 910 000
-            000
+            <span class="material-symbols-outlined text-sm">call</span>
+            <span>+51 1 748-0000 / +51 987 654 321</span>
           </li>
           <li class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-sm">mail</span> info@korarealty.com
+            <span class="material-symbols-outlined text-sm">mail</span>
+            <span>contacto@kora.pe / informes@kora.pe</span>
           </li>
         </ul>
       </div>
@@ -86,13 +93,17 @@ import logoKora from "../assets/icons/imagotipo.svg";
         >
           Newsletter
         </p>
-        <div class="flex bg-white/5 rounded-full p-1 border border-white/10">
+        <p class="text-white/60 text-sm font-body-md">
+          Suscríbete para recibir noticias exclusivas del mercado inmobiliario peruano y nuevos lanzamientos.
+        </p>
+        <div class="flex bg-white/5 rounded-full p-1 border border-white/10 mt-4">
           <input
             class="bg-transparent border-none focus:ring-0 flex-1 px-6 text-on-tertiary text-sm"
             placeholder="Tu email"
             type="email"
           />
           <button
+            aria-label="Suscribirse"
             class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-transform active:scale-95"
           >
             <span class="material-symbols-outlined">arrow_forward</span>
@@ -100,14 +111,14 @@ import logoKora from "../assets/icons/imagotipo.svg";
         </div>
       </div>
     </div>
-    <div class="flex justify-center">
-      <Image src={logoKora} alt="KORA Logo" />
+    <div class="flex justify-center py-6">
+      <Image src={logoKora} alt="KORA Logo" class="h-10 md:h-12 w-auto brightness-0 invert" />
     </div>
     <div
       class="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-10 font-body-md text-on-tertiary/40"
     >
-      <p>&copy; 2026 KORA. Exclusivity through Simplicity.</p>
-      <div class="flex gap-8 mt-4 md:mt-0">
+      <p>&copy; 2026 KORA Inmobiliaria. Exclusividad a través de la simplicidad. Todos los derechos reservados.</p>
+      <div class="flex gap-8 mt-4 md:mt-0 font-semibold">
         <a class="hover:text-on-tertiary transition-colors" href="#"
           >Privacidad</a
         >
