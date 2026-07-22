@@ -91,7 +91,15 @@ import Footer from '../components/Footer.astro';
     }
 
     // Support standard DOMContentLoaded and Astro page transitions
-    document.addEventListener("DOMContentLoaded", initGlobalScripts);
-    document.addEventListener("astro:page-load", initGlobalScripts);
+    function deferredInit() {
+      if (typeof requestIdleCallback !== 'undefined') {
+        requestIdleCallback(initGlobalScripts);
+      } else {
+        setTimeout(initGlobalScripts, 200);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", deferredInit);
+    document.addEventListener("astro:page-load", deferredInit);
   </script>
 </BaseLayout>

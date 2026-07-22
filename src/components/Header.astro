@@ -75,11 +75,26 @@ import logoIsotipo from "../assets/icons/isotipo.svg";
     id="mobileMenu"
     class="fixed inset-0 top-0 left-0 w-full h-screen bg-neutral-950/98 backdrop-blur-xl flex flex-col justify-center items-center gap-8 transition-all duration-500 ease-in-out translate-x-full z-40"
   >
-    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#inicio">Inicio</a>
-    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#nosotros">Nosotros</a>
-    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#servicios">Servicios</a>
-    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#propiedades-destacadas">Propiedades</a>
-    <a class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity" href="#blog">Estilos</a>
+    <a
+      class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity"
+      href="#inicio">Inicio</a
+    >
+    <a
+      class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity"
+      href="#nosotros">Nosotros</a
+    >
+    <a
+      class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity"
+      href="#servicios">Servicios</a
+    >
+    <a
+      class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity"
+      href="#propiedades-destacadas">Propiedades</a
+    >
+    <a
+      class="mobile-nav-link text-2xl font-bold font-body-lg text-white hover:text-opacity-80 transition-opacity"
+      href="#blog">Estilos</a
+    >
     <a
       class="bg-white text-black font-black px-10 py-4 rounded-full font-label-lg hover:bg-opacity-90 active:scale-95 transition-all duration-300 mt-4 inline-block"
       href="#contacto"
@@ -100,11 +115,11 @@ import logoIsotipo from "../assets/icons/isotipo.svg";
   }
 
   .scrolled-nav {
-    background-color: rgba(10, 10, 10, 0.342); /* Blurred black background */
+    background-color: rgba(10, 10, 10, 0.586); /* Blurred black background */
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 9999px;
+    border-radius: 999px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding-left: 1.5rem;
@@ -151,7 +166,7 @@ import logoIsotipo from "../assets/icons/isotipo.svg";
   .scrolled-nav #logoImagotipo {
     display: none !important;
   }
-  
+
   .scrolled-nav #logoIsotipo {
     display: block !important;
   }
@@ -336,6 +351,14 @@ import logoIsotipo from "../assets/icons/isotipo.svg";
     setupActiveNav();
   }
 
-  document.addEventListener("DOMContentLoaded", init);
-  document.addEventListener("astro:page-load", init);
+  function deferredInit() {
+    if (typeof requestIdleCallback !== "undefined") {
+      requestIdleCallback(init);
+    } else {
+      setTimeout(init, 200);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", deferredInit);
+  document.addEventListener("astro:page-load", deferredInit);
 </script>
