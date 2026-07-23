@@ -6,7 +6,7 @@ export default {
     extend: {
       colors: {
         'surface-container-lowest': '#ffffff',
-        'surface-container': '#eeeeee',
+        'surface-container': '#f4f4fd',
         'error-container': '#ffdad6',
         'primary-fixed': '#e2e2e2',
         'surface-container-highest': '#e2e2e2',
@@ -54,14 +54,14 @@ export default {
         'tertiary-fixed': '#e4e2e2',
       },
       fontFamily: {
-        'display-lg': ['Playfair Display', 'serif'],
-        'body-lg': ['Montserrat', 'sans-serif'],
-        'headline-lg': ['Playfair Display', 'serif'],
-        'display-lg-mobile': ['Playfair Display', 'serif'],
-        'headline-md': ['Playfair Display', 'serif'],
-        'label-lg': ['Montserrat', 'sans-serif'],
-        'body-md': ['Montserrat', 'sans-serif'],
-        'label-sm': ['Montserrat', 'sans-serif'],
+        'display-lg': ['Clash Display', 'sans-serif'],
+        'body-lg': ['Maxima Nouva', 'sans-serif'],
+        'headline-lg': ['Clash Display', 'sans-serif'],
+        'display-lg-mobile': ['Clash Display', 'sans-serif'],
+        'headline-md': ['Clash Display', 'sans-serif'],
+        'label-lg': ['Maxima Nouva', 'sans-serif'],
+        'body-md': ['Maxima Nouva', 'sans-serif'],
+        'label-sm': ['Maxima Nouva', 'sans-serif'],
       },
       fontSize: {
         'display-lg': ['64px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '600' }],
